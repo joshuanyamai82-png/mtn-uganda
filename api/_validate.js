@@ -10,8 +10,8 @@ function today(){
 export function validateLoan(data){
   const errors = {};
   const amount = Number(data.amount);
-  if (!Number.isFinite(amount) || amount < 500 || amount > 50000){
-    errors.amount = 'Enter an amount between K500 and K50,000.';
+  if (!Number.isFinite(amount) || amount < 104500 || amount > 10454200){
+    errors.amount = 'Enter an amount between UGX 104,500 and UGX 10,454,200.';
   }
   const term = Number(data.term);
   if (![1,3,6,12,24].includes(term)){
@@ -48,10 +48,10 @@ export function validatePersonal(data){
   }
   const p = String(data.phone || '');
   const okPhone =
-    /^0\d{9}$/.test(p) ||
-    /^\+260\d{9}$/.test(p) ||
-    /^260\d{9}$/.test(p);
-  if (!okPhone){ errors.phone = 'Enter a valid Zambian number: 097… or +260 97…'; }
+    /^07\d{8}$/.test(p) ||
+    /^\+256\d{9}$/.test(p) ||
+    /^256\d{9}$/.test(p);
+  if (!okPhone){ errors.phone = 'Enter a valid Ugandan number: 077… or +256 77…'; }
   if (data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)){
     errors.email = 'Enter a valid email address.';
   }
@@ -65,8 +65,8 @@ export function validateIncome(data){
     errors.employment = 'Select your employment status.';
   }
   const inc = Number(data.income);
-  if (!Number.isFinite(inc) || inc < 500){
-    errors.income = 'Enter your monthly income (at least K500).';
+  if (!Number.isFinite(inc) || inc < 104500){
+    errors.income = 'Enter your monthly income (at least UGX 104,500).';
   }
   return { ok: Object.keys(errors).length === 0, errors };
 }
