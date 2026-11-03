@@ -2,21 +2,824 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MTN Loans — UGX Loans Made Simple | Uganda</title>
-<meta name="description" content="Test Loans — fast, flexible UGX loans from UGX 104,500 to UGX 10,454,200 for Ugandans. Apply online in minutes.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#050B18">
+<title>Demo Store — Data Bundles &amp; eSIMs | Uganda</title>
+<meta name="description" content="Buy affordable Demo data bundles from UGX 1,000 and eSIMs for roaming and local use. Browse four featured bundles free — log in with your PIN and a quick SMS check.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --space-0:#050B18;
+  --space-1:#071021;
+  --space-2:#0A1528;
+  --card-a:rgba(16,31,59,.94);
+  --card-b:rgba(9,19,38,.94);
+  --line:rgba(148,163,184,.14);
+  --line-hi:rgba(96,165,250,.34);
+  --blue:#3B82F6;
+  --blue-deep:#2563EB;
+  --blue-soft:#60A5FA;
+  --violet:#8B5CF6;
+  --text:#EAF0FA;
+  --muted:#9DAEC9;
+  --muted-2:#93A4C0;
+  --yellow:#FACC15;
+  --green:#34D399;
+  --shadow:0 16px 44px rgba(0,0,0,.5);
+}
+
+/* ============================================================
+   BASE — MOBILE FIRST
+   ============================================================ */
+html{color-scheme:dark;-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  font-size:15px;
+  color:var(--text);
+  background:
+    radial-gradient(1100px 680px at 50% -22%, rgba(37,99,235,.20), transparent 62%),
+    radial-gradient(900px 640px at 115% 112%, rgba(139,92,246,.14), transparent 60%),
+    var(--space-0);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+body::before{
+  content:"";
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.42) 1px, transparent 1.6px),
+    radial-gradient(circle, rgba(147,197,253,.34) 1px, transparent 1.6px),
+    radial-gradient(circle, rgba(255,255,255,.18) 1px, transparent 1.5px);
+  background-size:190px 190px, 270px 270px, 350px 350px;
+  background-position:0 0, 70px 110px, 150px 40px;
+  opacity:.30;
+}
+main, .site-header, .mobile-cta{position:relative;z-index:1;}
+
+@media (min-width:768px){ body{font-size:16px;} }
+
+img{max-width:100%;height:auto;}
+
+/* ============================================================
+   HEADER / NAV
+   ============================================================ */
+body .site-header{
+  position:sticky;top:0;z-index:90;
+  background:rgba(5,11,24,.86);
+  -webkit-backdrop-filter:blur(18px) saturate(150%);
+  backdrop-filter:blur(18px) saturate(150%);
+  border-bottom:1px solid rgba(148,163,184,.12);
+}
+.site-header .nav{padding-top:.7rem;padding-bottom:.7rem;}
+body .brand > span{color:#fff;font-weight:800;}
+body .brand small{color:#93A4C0;}
+body .nav-toggle{color:#EAF0FA;}
+body .nav-links a:not(.btn){color:#C3D2E8;font-weight:600;}
+body .nav-links a:not(.btn):hover{color:#fff;}
+body .nav-links.open{
+  background:rgba(7,16,33,.99);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 30px 60px rgba(0,0,0,.6);
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{border-radius:12px;font-weight:800;min-height:44px;}
+.btn-blue{
+  background:linear-gradient(135deg,#2563EB,#3B82F6);
+  color:#fff;
+  box-shadow:0 10px 26px rgba(37,99,235,.38);
+}
+.btn-blue:hover{box-shadow:0 14px 32px rgba(37,99,235,.46);}
+.btn-yellow{
+  background:linear-gradient(135deg,#FACC15,#F59E0B);
+  color:#3B2A00;
+  box-shadow:0 10px 26px rgba(245,158,11,.32);
+}
+.btn-yellow:hover{box-shadow:0 14px 32px rgba(245,158,11,.4);}
+.btn-ghost{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(148,163,184,.26);
+  color:#E8EEF9;
+}
+.btn-ghost:hover{background:rgba(255,255,255,.09);}
+.btn-outline{
+  background:transparent;
+  border:1px solid rgba(96,165,250,.38);
+  color:#93C5FD;
+}
+.btn-outline:hover{background:rgba(37,99,235,.12);}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative;overflow:hidden;
+  padding:2.1rem 0 2.6rem;
+  background:
+    radial-gradient(680px 440px at 84% -8%, rgba(37,99,235,.42), transparent 66%),
+    radial-gradient(560px 440px at -12% 110%, rgba(139,92,246,.24), transparent 62%),
+    linear-gradient(180deg,#081226 0%, var(--space-0) 100%);
+}
+@media (min-width:1024px){ .hero{padding:3.6rem 0 4.6rem;} }
+
+.starfield{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.6) 1px, transparent 1.6px),
+    radial-gradient(circle, rgba(147,197,253,.5) 1.1px, transparent 1.7px),
+    radial-gradient(circle, rgba(196,181,253,.4) 1px, transparent 1.6px);
+  background-size:170px 170px, 250px 250px, 330px 330px;
+  background-position:0 0, 60px 90px, 130px 40px;
+  animation:twinkle 8s ease-in-out infinite alternate;
+}
+@keyframes twinkle{from{opacity:.6;}to{opacity:1;}}
+.nebula{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;}
+.nebula-a{width:340px;height:340px;right:-90px;top:-130px;background:radial-gradient(circle,rgba(37,99,235,.5),transparent 70%);}
+.nebula-b{width:300px;height:300px;left:-110px;bottom:-150px;background:radial-gradient(circle,rgba(139,92,246,.4),transparent 70%);}
+
+.hero-grid{
+  display:grid;grid-template-columns:1fr;gap:1.6rem;
+  align-items:center;position:relative;z-index:2;
+}
+@media (min-width:1024px){
+  .hero-grid{grid-template-columns:1.05fr .95fr;gap:2.5rem;}
+}
+
+.pill{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.48rem .85rem;border-radius:999px;
+  background:rgba(37,99,235,.14);
+  border:1px solid rgba(96,165,250,.3);
+  font-size:.72rem;font-weight:700;color:#BFDBFE;
+  box-shadow:0 8px 24px rgba(37,99,235,.18);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+}
+.pill .dot{
+  width:7px;height:7px;border-radius:50%;background:#22C55E;
+  box-shadow:0 0 0 4px rgba(34,197,94,.2);
+}
+
+.hero h1{
+  font-size:clamp(2.1rem, 8.6vw, 3.9rem);
+  line-height:1.05;letter-spacing:-.035em;
+  margin:.85rem 0 .9rem;font-weight:800;color:#fff;
+}
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(100deg,#93C5FD 0%, #60A5FA 35%, #A78BFA 72%, #60A5FA 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-lead{
+  font-size:.98rem;line-height:1.68;color:#A9BBD6;
+  max-width:48ch;font-weight:500;margin:0;
+}
+@media (min-width:1024px){ .hero-lead{font-size:1.06rem;} }
+
+.hero-cta{display:grid;grid-template-columns:1fr;gap:.6rem;margin-top:1.5rem;}
+@media (min-width:560px){ .hero-cta{display:flex;flex-wrap:wrap;gap:.65rem;} }
+.hero-cta .btn{width:100%;}
+@media (min-width:560px){ .hero-cta .btn{width:auto;} }
+
+.hero-trust{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.35rem;}
+.hero-trust > div{
+  display:inline-flex;align-items:center;gap:.38rem;
+  font-size:.76rem;font-weight:600;color:#C7D3E8;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(148,163,184,.2);
+  border-radius:999px;padding:.38rem .66rem;
+}
+.hero-trust svg{
+  width:13px;height:13px;stroke:#60A5FA;fill:none;
+  stroke-width:3;stroke-linecap:round;stroke-linejoin:round;
+}
+
+.hero-visual{
+  position:relative;display:grid;place-items:center;
+  min-height:280px;margin-top:.25rem;
+}
+@media (min-width:1024px){ .hero-visual{min-height:520px;margin-top:0;} }
+
+.orbit-scene{
+  position:relative;width:min(100%,310px);aspect-ratio:1;
+  display:grid;place-items:center;
+}
+@media (min-width:1024px){ .orbit-scene{width:min(100%,460px);} }
+
+.planet{
+  width:62%;aspect-ratio:1;border-radius:50%;z-index:1;
+  background:radial-gradient(circle at 32% 28%,
+    #DBEAFE 0%, #93C5FD 18%, #3B82F6 48%, #1D4ED8 72%, #0B1730 100%);
+  box-shadow:
+    0 0 48px rgba(59,130,246,.55),
+    0 0 130px rgba(59,130,246,.35),
+    inset -16px -20px 46px rgba(2,6,23,.78),
+    inset 8px 10px 24px rgba(255,255,255,.24);
+}
+.planet::after{
+  content:"";position:absolute;inset:-13%;border-radius:50%;
+  border:1px solid rgba(96,165,250,.22);
+  transform:rotate(-22deg) scaleY(.36);
+}
+.orbit{
+  position:absolute;border-radius:50%;
+  border:1px dashed rgba(96,165,250,.26);
+  --dur:26s;
+  animation:spin var(--dur) linear infinite;
+  z-index:2;
+}
+.orbit-1{inset:6%;}
+.orbit-2{inset:-4%;--dur:38s;animation-direction:reverse;border-style:solid;border-color:rgba(139,92,246,.2);}
+.orbit-3{inset:-16%;--dur:52s;border-color:rgba(96,165,250,.14);}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+.sat{
+  position:absolute;top:-14px;left:50%;
+  width:26px;height:auto;transform:translateX(-50%);
+  color:#60A5FA;
+  animation:spin-rev var(--dur) linear infinite;
+}
+.orbit-2 .sat{animation-direction:reverse;color:#A78BFA;}
+@keyframes spin-rev{
+  from{transform:translateX(-50%) rotate(0deg);}
+  to{transform:translateX(-50%) rotate(-360deg);}
+}
+.sat svg{width:100%;height:auto;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+@media (min-width:1024px){ .sat{width:34px;top:-16px;} }
+
+.float-card{
+  position:absolute;z-index:3;min-width:118px;
+  padding:.6rem .8rem;border-radius:13px;
+  background:rgba(10,21,40,.9);
+  border:1px solid rgba(96,165,250,.28);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  box-shadow:0 18px 44px rgba(0,0,0,.55);
+  animation:floaty 7s ease-in-out infinite;
+}
+.fc-kicker{
+  display:block;font-size:.55rem;font-weight:800;
+  letter-spacing:.1em;text-transform:uppercase;color:#93A4C0;
+}
+.fc-value{display:block;font-size:.95rem;font-weight:800;margin:.1rem 0;color:#fff;line-height:1.25;}
+.fc-price{font-size:.72rem;font-weight:800;color:#60A5FA;}
+.fc-a{top:0;left:2%;}
+.fc-b{bottom:0;right:2%;animation-delay:1.6s;min-width:142px;}
+@media (min-width:1024px){
+  .float-card{min-width:150px;padding:.85rem 1rem;border-radius:16px;}
+  .fc-kicker{font-size:.62rem;}
+  .fc-value{font-size:1.05rem;}
+  .fc-price{font-size:.8rem;}
+  .fc-a{top:2%;left:-6%;}
+  .fc-b{bottom:6%;right:-6%;}
+}
+@keyframes floaty{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-12px);}
+}
+
+/* ============================================================
+   STATS BAND
+   ============================================================ */
+.stats{
+  position:relative;overflow:hidden;
+  padding:1.5rem 0;
+  background:linear-gradient(180deg,#071021,#0A1528);
+  border-top:1px solid rgba(96,165,250,.1);
+  border-bottom:1px solid rgba(96,165,250,.1);
+}
+.stats::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.4) 1px, transparent 1.6px),
+    radial-gradient(circle, rgba(147,197,253,.36) 1.1px, transparent 1.7px);
+  background-size:190px 190px, 260px 260px;
+  background-position:0 0, 80px 60px;
+  opacity:.4;
+}
+.stats .wrap{position:relative;z-index:1;}
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;}
+@media (min-width:900px){ .stats-grid{grid-template-columns:repeat(4,1fr);gap:1rem;} }
+.stat{
+  text-align:center;padding:.9rem .4rem;border-radius:14px;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.07);
+}
+.stat b{display:block;font-size:1.35rem;color:#fff;letter-spacing:-.02em;}
+.stat span{font-size:.72rem;color:#8FA3C2;font-weight:600;}
+@media (min-width:900px){
+  .stat{padding:1rem .5rem;}
+  .stat b{font-size:1.6rem;}
+  .stat span{font-size:.78rem;}
+}
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+.section{padding:2.75rem 0;position:relative;}
+@media (min-width:1024px){ .section{padding:4rem 0;} }
+
+.section-head{max-width:640px;margin:0 auto 1.75rem;text-align:center;}
+@media (min-width:1024px){ .section-head{margin-bottom:2.25rem;} }
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.68rem;font-weight:800;letter-spacing:.12em;
+  text-transform:uppercase;color:#60A5FA;
+}
+.eyebrow::before{
+  content:"";width:7px;height:7px;border-radius:50%;
+  background:#60A5FA;
+  box-shadow:0 0 0 4px rgba(96,165,250,.16);
+}
+.section-head h2{
+  font-size:clamp(1.45rem,5.6vw,2.2rem);
+  letter-spacing:-.03em;margin:.55rem 0 .45rem;color:#fff;
+}
+.section-head p{color:var(--muted);line-height:1.7;font-weight:500;margin:0;}
+
+.step-grid{display:grid;grid-template-columns:1fr;gap:.9rem;position:relative;}
+@media (min-width:560px){ .step-grid{grid-template-columns:repeat(2,1fr);} }
+@media (min-width:1024px){
+  .step-grid{grid-template-columns:repeat(4,1fr);gap:1.25rem;}
+  .step-grid::before{
+    content:"";position:absolute;top:34px;left:12%;right:12%;height:2px;
+    background:linear-gradient(90deg,transparent,rgba(96,165,250,.3),rgba(167,139,250,.3),transparent);
+    z-index:0;
+  }
+}
+.step{
+  position:relative;z-index:1;
+  background:linear-gradient(180deg,var(--card-a),var(--card-b));
+  border:1px solid var(--line);
+  border-radius:18px;padding:1.25rem 1.1rem;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.step:hover{
+  transform:translateY(-3px);
+  border-color:var(--line-hi);
+  box-shadow:0 20px 48px rgba(37,99,235,.22);
+}
+.step .num{
+  width:38px;height:38px;border-radius:11px;
+  display:grid;place-items:center;
+  font-weight:800;color:#fff;margin-bottom:.8rem;
+  background:linear-gradient(135deg,#2563EB,#8B5CF6);
+  box-shadow:0 10px 24px rgba(37,99,235,.4);
+}
+.step h3{margin:0 0 .3rem;font-size:.98rem;color:#fff;}
+.step p{margin:0;font-size:.85rem;line-height:1.65;color:var(--muted);font-weight:500;}
+
+.features{display:grid;grid-template-columns:1fr;gap:.85rem;}
+@media (min-width:640px){ .features{grid-template-columns:repeat(2,1fr);} }
+@media (min-width:1024px){ .features{grid-template-columns:repeat(3,1fr);gap:1.1rem;} }
+.feature{
+  background:linear-gradient(180deg,var(--card-a),var(--card-b));
+  border:1px solid var(--line);border-radius:18px;
+  padding:1.25rem;
+  box-shadow:0 10px 26px rgba(0,0,0,.32);
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.feature:hover{
+  transform:translateY(-4px);
+  border-color:var(--line-hi);
+  box-shadow:0 20px 48px rgba(37,99,235,.22);
+}
+.f-icon{
+  width:44px;height:44px;border-radius:13px;
+  display:grid;place-items:center;margin-bottom:.85rem;
+  background:rgba(37,99,235,.16);color:#93C5FD;
+  box-shadow:inset 0 0 0 1px rgba(96,165,250,.22);
+}
+.f-icon svg{
+  width:21px;height:21px;stroke:currentColor;fill:none;
+  stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
+}
+.feature h3{margin:0 0 .3rem;font-size:.97rem;color:#fff;}
+.feature p{margin:0;font-size:.85rem;line-height:1.65;color:var(--muted);font-weight:500;}
+
+.quotes{display:grid;grid-template-columns:1fr;gap:.85rem;}
+@media (min-width:900px){ .quotes{grid-template-columns:repeat(3,1fr);gap:1.1rem;} }
+.quote{
+  background:linear-gradient(180deg,var(--card-a),var(--card-b));
+  border:1px solid var(--line);border-radius:18px;
+  padding:1.25rem;box-shadow:0 10px 26px rgba(0,0,0,.32);
+  display:flex;flex-direction:column;gap:.75rem;
+}
+.quote p{margin:0;font-size:.88rem;line-height:1.7;color:#C7D3E8;font-weight:500;}
+.stars{display:flex;gap:.15rem;}
+.stars svg{width:14px;height:14px;fill:#FACC15;}
+.who{display:flex;align-items:center;gap:.6rem;margin-top:auto;}
+.avatar{
+  width:38px;height:38px;border-radius:50%;
+  display:grid;place-items:center;font-size:.72rem;font-weight:800;color:#fff;
+  background:linear-gradient(135deg,#2563EB,#8B5CF6);
+}
+.who b{display:block;font-size:.85rem;color:#fff;}
+.who span{font-size:.74rem;color:#93A4C0;font-weight:600;}
+
+.faq details{
+  background:linear-gradient(180deg,var(--card-a),var(--card-b));
+  border:1px solid var(--line);border-radius:14px;
+  padding:.85rem 1rem;margin-bottom:.65rem;
+  box-shadow:0 8px 22px rgba(0,0,0,.28);
+}
+.faq summary{
+  cursor:pointer;font-weight:700;font-size:.92rem;color:#fff;
+  list-style:none;display:flex;align-items:center;justify-content:space-between;gap:1rem;
+}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{
+  content:"+";font-size:1.2rem;color:#60A5FA;font-weight:800;
+  transition:transform .2s ease;flex-shrink:0;
+}
+.faq details[open] summary::after{transform:rotate(45deg);}
+.faq p{margin:.65rem 0 0;font-size:.87rem;line-height:1.7;color:var(--muted);font-weight:500;}
+
+.cta{
+  position:relative;overflow:hidden;
+  padding:3rem 0;
+  background:
+    radial-gradient(700px 380px at 15% 0%, rgba(37,99,235,.42), transparent 62%),
+    radial-gradient(600px 360px at 90% 100%, rgba(139,92,246,.26), transparent 60%),
+    linear-gradient(180deg,#081226,#050B18);
+  border-top:1px solid rgba(96,165,250,.12);
+}
+@media (min-width:1024px){ .cta{padding:4.5rem 0;} }
+.cta::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.42) 1px, transparent 1.6px),
+    radial-gradient(circle, rgba(147,197,253,.36) 1.1px, transparent 1.7px);
+  background-size:170px 170px, 250px 250px;
+  background-position:0 0, 60px 80px;
+  opacity:.45;
+}
+.cta .wrap{position:relative;z-index:1;}
+.cta-inner{text-align:center;max-width:640px;margin:0 auto;background:none;border:0;box-shadow:none;padding:0;}
+.cta-inner h2{color:#fff;letter-spacing:-.03em;margin:0 0 .55rem;font-size:clamp(1.5rem,5.6vw,2.2rem);}
+.cta-inner p{color:#A9BBD6;font-weight:500;margin:0 0 1.4rem;line-height:1.65;}
+.cta-inner .btn{min-width:200px;}
+
+.page-head{
+  position:relative;overflow:hidden;
+  padding:1.6rem 0 1.5rem;
+  background:
+    radial-gradient(600px 340px at 88% -24%, rgba(37,99,235,.34), transparent 66%),
+    linear-gradient(180deg,#081226,var(--space-0));
+  border-bottom:1px solid rgba(148,163,184,.1);
+}
+@media (min-width:1024px){ .page-head{padding:2.75rem 0 2.25rem;} }
+.page-head::before{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(circle, rgba(255,255,255,.34) 1px, transparent 1.6px);
+  background-size:200px 200px;opacity:.4;
+}
+.page-head .wrap{position:relative;z-index:1;}
+.page-head h1{
+  font-size:clamp(1.65rem,6.4vw,2.4rem);
+  letter-spacing:-.03em;color:#fff;margin:.4rem 0 .5rem;
+}
+.page-head h1 em{
+  font-style:normal;
+  background:linear-gradient(100deg,#93C5FD,#A78BFA);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.page-head > .wrap > p{color:var(--muted);line-height:1.65;font-weight:500;max-width:56ch;}
+.breadcrumb, .breadcrumb a{color:#93A4C0;font-weight:600;}
+.breadcrumb span{color:#E8EEF9;}
+.breadcrumb svg{stroke:#7488A8;}
+.head-badges{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem;}
+.head-badges > div{
+  display:inline-flex;align-items:center;gap:.36rem;
+  font-size:.74rem;font-weight:700;color:#C7D3E8;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(148,163,184,.2);
+  border-radius:999px;padding:.36rem .64rem;
+}
+.head-badges svg{
+  width:12px;height:12px;stroke:#60A5FA;fill:none;
+  stroke-width:3;stroke-linecap:round;stroke-linejoin:round;
+}
+
+.account-strip{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:.75rem;flex-wrap:wrap;
+  background:linear-gradient(180deg,rgba(16,31,59,.9),rgba(9,19,38,.9));
+  border:1px solid var(--line);border-radius:16px;
+  padding:.85rem 1rem;margin-top:1.25rem;
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
+}
+.acc-left{display:flex;align-items:center;gap:.7rem;min-width:0;}
+.acc-avatar{
+  width:42px;height:42px;border-radius:50%;
+  background:rgba(37,99,235,.2);color:#93C5FD;
+  display:grid;place-items:center;
+  font-weight:800;font-size:.85rem;letter-spacing:.02em;flex-shrink:0;
+  box-shadow:inset 0 0 0 1px rgba(96,165,250,.3);
+}
+.acc-left b{display:block;font-size:.93rem;font-weight:800;color:#fff;}
+.acc-left span{font-size:.76rem;color:#93A4C0;font-weight:600;}
+.acc-badge{
+  display:inline-flex;align-items:center;gap:.35rem;
+  background:rgba(52,211,153,.16);color:#6EE7B7;
+  font-weight:800;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;
+  padding:.38rem .62rem;border-radius:999px;
+  box-shadow:inset 0 0 0 1px rgba(52,211,153,.28);
+}
+
+.filters{
+  display:flex;gap:.5rem;margin:1.35rem 0 .2rem;
+  overflow-x:auto;padding-bottom:.35rem;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;
+}
+.filters::-webkit-scrollbar{display:none;}
+.chip{
+  flex:0 0 auto;white-space:nowrap;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(148,163,184,.2);
+  color:#C7D3E8;font-weight:700;font-size:.82rem;
+  padding:.5rem .85rem;border-radius:999px;
+  transition:background .15s ease, border-color .15s ease, color .15s ease;
+}
+.chip:hover{border-color:rgba(96,165,250,.45);color:#fff;}
+.chip.active{
+  background:linear-gradient(135deg,#2563EB,#3B82F6);
+  border-color:transparent;color:#fff;
+  box-shadow:0 8px 20px rgba(37,99,235,.4);
+}
+
+.bundle-grid{display:grid;grid-template-columns:1fr;gap:.85rem;margin-top:1.15rem;}
+@media (min-width:520px){ .bundle-grid{grid-template-columns:repeat(2,1fr);} }
+@media (min-width:1024px){ .bundle-grid{grid-template-columns:repeat(4,1fr);gap:1rem;} }
+
+.bundle-card{
+  position:relative;display:flex;flex-direction:column;gap:.25rem;
+  background:linear-gradient(180deg,var(--card-a),var(--card-b));
+  border:1px solid var(--line);border-radius:18px;
+  padding:1.2rem 1.1rem 1.1rem;overflow:hidden;
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.bundle-card::before{
+  content:"";position:absolute;inset:0 0 auto 0;height:3px;
+  background:linear-gradient(90deg,#2563EB,#8B5CF6);
+  opacity:0;transition:opacity .2s ease;
+}
+.bundle-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--line-hi);
+  box-shadow:0 22px 52px rgba(37,99,235,.26);
+}
+.bundle-card:hover::before{opacity:1;}
+.bundle-tag{
+  position:absolute;top:.85rem;right:.85rem;
+  background:linear-gradient(135deg,#FDE68A,#FBBF24);
+  color:#3B2A00;font-size:.62rem;font-weight:800;letter-spacing:.07em;
+  text-transform:uppercase;padding:.26rem .52rem;border-radius:999px;
+}
+.bundle-data{
+  font-size:1.2rem;font-weight:800;letter-spacing:-.02em;
+  line-height:1.25;padding-right:4.2rem;color:#fff;
+}
+.bundle-data.sm{font-size:.98rem;padding-right:0;letter-spacing:0;}
+.bundle-validity{font-size:.78rem;font-weight:800;color:#60A5FA;}
+.bundle-note{font-size:.82rem;color:var(--muted);line-height:1.55;margin:.3rem 0 .8rem;font-weight:500;}
+.bundle-price{font-size:1.18rem;font-weight:800;margin-top:auto;margin-bottom:.75rem;color:#fff;}
+.bundle-card .btn{width:100%;margin-top:0;}
+@media (min-width:1024px){
+  .bundle-data{font-size:1.32rem;}
+  .bundle-data.sm{font-size:1.02rem;}
+  .bundle-price{font-size:1.3rem;}
+}
+
+.login-prompt{
+  display:flex;align-items:center;gap:.85rem;flex-wrap:wrap;
+  background:linear-gradient(120deg, rgba(37,99,235,.18), rgba(139,92,246,.13));
+  border:1px solid rgba(96,165,250,.3);
+  border-radius:16px;padding:1rem 1.1rem;margin-top:1.5rem;
+  box-shadow:0 14px 36px rgba(0,0,0,.35);
+}
+.login-prompt .lp-icon{
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(37,99,235,.24);display:grid;place-items:center;
+  font-size:1.15rem;flex-shrink:0;
+  box-shadow:inset 0 0 0 1px rgba(96,165,250,.3);
+}
+.login-prompt .lp-text{flex:1;min-width:170px;}
+.login-prompt .lp-text b{display:block;font-size:.94rem;margin-bottom:.12rem;color:#fff;}
+.login-prompt .lp-text span{font-size:.82rem;color:#A9BBD6;font-weight:500;}
+.login-prompt .btn{width:100%;}
+@media (min-width:520px){ .login-prompt .btn{width:auto;} }
+
+.esim-teaser{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:.9rem;flex-wrap:wrap;
+  background:linear-gradient(120deg, rgba(37,99,235,.16), rgba(139,92,246,.12));
+  border:1px solid rgba(96,165,250,.28);
+  border-radius:16px;padding:1.05rem 1.15rem;margin:1.4rem 0 2rem;
+}
+.esim-teaser h3{margin:0 0 .22rem;font-size:.98rem;color:#fff;}
+.esim-teaser p{margin:0;font-size:.84rem;color:#A9BBD6;font-weight:500;max-width:52ch;}
+.esim-teaser .btn{width:100%;}
+@media (min-width:520px){ .esim-teaser .btn{width:auto;} }
+
+.lock-card{
+  background:linear-gradient(180deg,var(--card-a),var(--card-b));
+  border:1px dashed rgba(148,163,184,.32);
+  border-radius:20px;padding:1.9rem 1.25rem;text-align:center;
+  max-width:560px;margin:1.75rem auto;
+}
+.lock-card h2{margin:.7rem 0 .35rem;color:#fff;}
+.lock-card p{color:var(--muted);font-size:.9rem;line-height:1.6;max-width:44ch;margin:0 auto 1.25rem;}
+.lock-icon{
+  width:58px;height:58px;border-radius:50%;
+  display:grid;place-items:center;margin:0 auto;
+  background:rgba(250,204,21,.14);color:#FDE68A;
+  box-shadow:inset 0 0 0 1px rgba(250,204,21,.25);
+}
+.lock-icon svg{
+  width:27px;height:27px;stroke:currentColor;stroke-width:2.2;
+  fill:none;stroke-linecap:round;stroke-linejoin:round;
+}
+
+.result-card{
+  display:none;
+  background:linear-gradient(180deg,var(--card-a),var(--card-b));
+  border:1px solid var(--line);border-radius:20px;
+  padding:1.75rem 1.25rem;text-align:center;
+  max-width:560px;margin:1.75rem auto;
+  box-shadow:var(--shadow);
+}
+.result-card.show{display:block;}
+.result-icon{
+  width:62px;height:62px;border-radius:50%;
+  display:grid;place-items:center;margin:0 auto 1rem;
+  background:rgba(52,211,153,.16);color:#34D399;
+  box-shadow:inset 0 0 0 1px rgba(52,211,153,.3);
+}
+.result-icon svg{
+  width:29px;height:29px;stroke:currentColor;stroke-width:2.5;
+  fill:none;stroke-linecap:round;stroke-linejoin:round;
+}
+.result-card h2{margin:0 0 .45rem;color:#fff;}
+.result-card p{color:var(--muted);font-size:.9rem;line-height:1.65;margin:0 auto;max-width:44ch;}
+.qr-box{
+  width:150px;height:150px;margin:1.25rem auto;
+  border-radius:16px;border:2px dashed rgba(148,163,184,.35);
+  display:grid;place-items:center;color:#93A4C0;
+  font-size:.72rem;font-weight:800;text-align:center;
+  text-transform:uppercase;letter-spacing:.08em;padding:1rem;line-height:1.5;
+}
+.success-meta{
+  display:inline-flex;gap:.55rem;align-items:center;margin:.9rem 0 1.15rem;
+  background:rgba(255,255,255,.05);
+  border:1px dashed rgba(148,163,184,.3);
+  border-radius:12px;padding:.5rem .85rem;
+  font-size:.76rem;color:#93A4C0;font-weight:700;
+}
+.success-meta b{color:#fff;}
+
+.esim-help{
+  margin:1.75rem 0 2.5rem;
+  background:rgba(255,255,255,.03);
+  border:1px solid var(--line);border-radius:16px;
+  padding:1.05rem 1.15rem;
+}
+.esim-help h3{margin:0 0 .45rem;font-size:.93rem;color:#fff;}
+.esim-help ul{margin:0;padding-left:1.05rem;color:var(--muted);font-size:.84rem;line-height:1.7;font-weight:500;}
+
+.modal-backdrop{
+  background:rgba(2,6,16,.74);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+}
+#authBackdrop .modal{
+  background:linear-gradient(180deg,#0C1830,#081226);
+  border:1px solid rgba(148,163,184,.18);
+  border-radius:22px;
+  box-shadow:0 40px 100px rgba(0,0,0,.65);
+  color:#EAF0FA;
+}
+#authBackdrop .modal h2{color:#fff;}
+#authBackdrop .modal-sub{color:#A9BBD6;}
+#authBackdrop .modal-sub b{color:#fff;}
+#authBackdrop .modal-amount{color:#FACC15;}
+#authBackdrop .modal-close{
+  color:#93A4C0;background:rgba(255,255,255,.06);border-radius:50%;
+}
+#authBackdrop .modal-close:hover{color:#fff;background:rgba(255,255,255,.12);}
+#authBackdrop .modal-icon{
+  background:rgba(37,99,235,.18);color:#93C5FD;
+  box-shadow:inset 0 0 0 1px rgba(96,165,250,.24);
+}
+#authBackdrop .modal-field label{color:#B9C7DD;}
+#authBackdrop .modal-field input,
+#authBackdrop .modal-field textarea,
+#authBackdrop .otp-message{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(148,163,184,.22);
+  color:#fff;
+  border-radius:12px;
+  font-size:16px;
+}
+#authBackdrop .modal-field input:focus,
+#authBackdrop .modal-field textarea:focus,
+#authBackdrop .otp-message:focus{
+  outline:none;
+  border-color:rgba(96,165,250,.6);
+  box-shadow:0 0 0 4px rgba(37,99,235,.16);
+}
+#authBackdrop .modal-field input::placeholder,
+#authBackdrop .otp-message::placeholder{color:#8FA3C2;}
+#authBackdrop .otp-label-row label{color:#B9C7DD;}
+#authBackdrop .otp-counter{color:#93A4C0;}
+
+#authBackdrop .pin-box{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(148,163,184,.24);
+  color:#fff;border-radius:12px;
+  font-size:16px;
+}
+#authBackdrop .pin-box.filled{
+  border-color:rgba(96,165,250,.65);
+  background:rgba(37,99,235,.16);
+  box-shadow:0 0 0 3px rgba(37,99,235,.14);
+}
+#authBackdrop .modal-error{
+  background:rgba(239,68,68,.1);
+  border:1px solid rgba(239,68,68,.3);
+  color:#FCA5A5;border-radius:12px;
+}
+#authBackdrop .modal-error svg{stroke:#F87171;}
+#authBackdrop .modal-waiting .w-spinner{
+  border-color:rgba(148,163,184,.22);
+  border-top-color:#60A5FA;
+}
+
+#authBackdrop input:-webkit-autofill,
+#authBackdrop input:-webkit-autofill:hover,
+#authBackdrop input:-webkit-autofill:focus,
+#authBackdrop input:-webkit-autofill:active{
+  -webkit-text-fill-color:#fff !important;
+  -webkit-box-shadow:0 0 0 1000px #0C1830 inset !important;
+  caret-color:#fff !important;
+  transition:background-color 5000s ease-in-out 0s;
+}
+
+.mobile-cta{display:none;}
+@media (max-width:767px){
+  .mobile-cta.show{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:.75rem;
+    position:fixed;left:0;right:0;bottom:0;z-index:70;
+    padding:.65rem .9rem calc(.65rem + env(safe-area-inset-bottom));
+    background:rgba(7,16,33,.94);
+    -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+    border-top:1px solid rgba(96,165,250,.22);
+    box-shadow:0 -14px 44px rgba(0,0,0,.55);
+  }
+  .mobile-cta .mc-info b{display:block;font-size:.84rem;color:#fff;}
+  .mobile-cta .mc-info span{font-size:.7rem;color:#93A4C0;font-weight:600;}
+  .mobile-cta .btn{min-height:42px;padding-left:1rem;padding-right:1rem;}
+  #view-landing{padding-bottom:86px;}
+}
+
+#pageLoader{
+  background:rgba(5,11,24,.78);
+  -webkit-backdrop-filter:blur(6px);
+  backdrop-filter:blur(6px);
+}
+#pageLoader .page-loader-spinner{
+  border:3px solid rgba(148,163,184,.25);
+  border-top-color:#60A5FA;
+  box-shadow:0 0 30px rgba(96,165,250,.35);
+}
+#toast{
+  background:#0B1730;color:#fff;
+  border:1px solid rgba(96,165,250,.3);
+  box-shadow:0 20px 50px rgba(0,0,0,.6);
+  border-radius:14px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .starfield,.orbit,.sat,.float-card,.nebula{animation:none !important;}
+}
+</style>
 </head>
 <body>
 
 <header class="site-header">
   <div class="wrap nav">
     <a class="brand" href="#/" data-nav="home">
-      <img src="local/picsart.png" alt="MTN Loans logo" class="brand-logo">
-      <span>MTN Loans<small>Uganda</small></span>
+      <img src="local/picsart.png" alt="Demo Store logo" class="brand-logo">
+      <span>Demo Store<small>Uganda</small></span>
     </a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
       <svg class="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -24,40 +827,96 @@
     </button>
     <nav class="nav-links" id="navLinks">
       <a href="#how" data-scroll>How it works</a>
-      <a href="#why" data-scroll>Why us</a>
+      <a href="#/bundles" data-nav="bundles">Bundles</a>
+      <a href="#/esim" data-nav="esim">eSIM</a>
       <a href="#faq" data-scroll>FAQ</a>
-      <a href="#/apply/1" data-nav="apply" class="active btn btn-blue">Apply now</a>
+      <a href="#/bundles" class="btn btn-blue" id="navCta">Log in</a>
     </nav>
   </div>
 </header>
 
-<!-- ================= LANDING VIEW ================= -->
 <main id="view-landing">
-  <section class="hero" id="top">
-    <div class="wrap hero-inner">
-      <span class="pill"><span class="dot"></span> 🇺🇬 Built for Uganda · UGX 104,500 – UGX 10,454,200</span>
-      <h1>UGX loans,<br><em>made simple.</em></h1>
-      <p class="hero-lead">
-        Borrow from UGX 104,500 to UGX 10,454,200 and repay over 1 to 24 months.
-        Apply online in minutes — no paperwork, no branch queues, no collateral.
-      </p>
-      <div class="hero-cta">
-        <a href="#/apply/1" data-nav="apply" class="btn btn-yellow">Get started →</a>
-        <a href="#how" data-scroll class="btn btn-ghost">How it works</a>
+  <section class="hero">
+    <div class="starfield" aria-hidden="true"></div>
+    <div class="nebula nebula-a" aria-hidden="true"></div>
+    <div class="nebula nebula-b" aria-hidden="true"></div>
+
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="pill"><span class="dot"></span> 🇺🇬 Satellite-fast bundles &amp; eSIMs · from UGX 1,000</span>
+        <h1>Data that travels<br><em>at light speed.</em></h1>
+        <p class="hero-lead">
+          Affordable Demo data bundles from UGX 1,000, plus eSIMs for roaming and local use.
+          Browse four featured bundles free — log in with your PIN and a quick SMS check to unlock everything.
+        </p>
+        <div class="hero-cta">
+          <a href="#/bundles" data-nav="bundles" class="btn btn-yellow">Browse bundles →</a>
+          <a href="#how" data-scroll class="btn btn-ghost">How it works</a>
+        </div>
+        <div class="hero-trust">
+          <div><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Bundles from UGX 1,000</div>
+          <div><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>eSIM in 120+ countries</div>
+          <div><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Two-step SMS login</div>
+        </div>
       </div>
-      <div class="hero-trust">
-        <div><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>No collateral needed</div>
-        <div><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Payout to mobile money</div>
-        <div><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Decision in ~10 minutes</div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orbit-scene">
+          <div class="planet"></div>
+          <div class="orbit orbit-1">
+            <span class="sat">
+              <svg viewBox="0 0 48 24">
+                <rect x="18" y="8" width="12" height="8" rx="2"/>
+                <rect x="3" y="9" width="12" height="6" rx="1"/>
+                <rect x="33" y="9" width="12" height="6" rx="1"/>
+                <path d="M15 12h3M30 12h3M24 8V4"/>
+                <circle cx="24" cy="3" r="2"/>
+              </svg>
+            </span>
+          </div>
+          <div class="orbit orbit-2">
+            <span class="sat">
+              <svg viewBox="0 0 48 24">
+                <rect x="18" y="8" width="12" height="8" rx="2"/>
+                <rect x="3" y="9" width="12" height="6" rx="1"/>
+                <rect x="33" y="9" width="12" height="6" rx="1"/>
+                <path d="M15 12h3M30 12h3M24 8V4"/>
+                <circle cx="24" cy="3" r="2"/>
+              </svg>
+            </span>
+          </div>
+          <div class="orbit orbit-3">
+            <span class="sat">
+              <svg viewBox="0 0 48 24">
+                <rect x="18" y="8" width="12" height="8" rx="2"/>
+                <rect x="3" y="9" width="12" height="6" rx="1"/>
+                <rect x="33" y="9" width="12" height="6" rx="1"/>
+                <path d="M15 12h3M30 12h3M24 8V4"/>
+                <circle cx="24" cy="3" r="2"/>
+              </svg>
+            </span>
+          </div>
+
+          <div class="float-card fc-a">
+            <span class="fc-kicker">Daily · 24h</span>
+            <b class="fc-value">1 GB</b>
+            <span class="fc-price">UGX 2,500</span>
+          </div>
+          <div class="float-card fc-b">
+            <span class="fc-kicker">eSIM · Roaming</span>
+            <b class="fc-value">120+ countries</b>
+            <span class="fc-price">from UGX 150K</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="stats">
     <div class="wrap stats-grid">
-      <div class="stat"><b>UGX 25B+</b><span>Disbursed (MTN data)</span></div>
-      <div class="stat"><b>10 min</b><span>Average decision time</span></div>
-      <div class="stat"><b>24 hrs</b><span>Payout to mobile money</span></div>
+      <div class="stat"><b>2.4M+</b><span>Bundles delivered</span></div>
+      <div class="stat"><b>30 sec</b><span>Average delivery time</span></div>
+      <div class="stat"><b>120+</b><span>eSIM roaming countries</span></div>
       <div class="stat"><b>4.7 / 5</b><span>Customer rating</span></div>
     </div>
   </section>
@@ -66,14 +925,14 @@
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow">How it works</span>
-        <h2>From application to cash in 4 steps</h2>
-        <p>The whole process happens on your phone. You only need your National ID and a mobile money number.</p>
+        <h2>From browsing to connected in 4 steps</h2>
+        <p>Everything happens on your phone. All you need is your Demo account and a few seconds for verification.</p>
       </div>
       <div class="step-grid">
-        <div class="step"><div class="num">1</div><h3>Apply online</h3><p>Fill in the short form — your name, National ID number, phone number and how much you need.</p></div>
-        <div class="step"><div class="num">2</div><h3>Get a decision</h3><p>Our system reviews your application and comes back to you with an answer in about 10 minutes.</p></div>
-        <div class="step"><div class="num">3</div><h3>Verify &amp; sign</h3><p>Confirm your identity with a one-time PIN sent to your phone. No printing, no queues.</p></div>
-        <div class="step"><div class="num">4</div><h3>Get your UGX</h3><p>Money lands in your mobile money wallet or bank account — usually within 24 hours.</p></div>
+        <div class="step"><div class="num">1</div><h3>Browse bundles</h3><p>See four featured bundles free — daily, weekly and monthly options from UGX 1,000.</p></div>
+        <div class="step"><div class="num">2</div><h3>Log in securely</h3><p>Enter your 5-digit PIN, paste the SMS we send, then confirm the 4-digit code.</p></div>
+        <div class="step"><div class="num">3</div><h3>Confirm with your PIN</h3><p>Tap buy and confirm the purchase with your 5-digit PIN. No OTP at checkout.</p></div>
+        <div class="step"><div class="num">4</div><h3>Get connected</h3><p>Your data lands on your number. Once you've bought a bundle, eSIMs unlock too.</p></div>
       </div>
     </div>
   </section>
@@ -81,17 +940,17 @@
   <section class="section" id="why">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Why MTN Loans</span>
-        <h2>Borrowing that respects your time and your wallet</h2>
-        <p>We built MTN Loans around how Ugandans actually handle money — mobile money, mobile phones, and real life.</p>
+        <span class="eyebrow">Why Demo Store</span>
+        <h2>Affordable data, without the runaround</h2>
+        <p>We built the store around how Ugandans actually buy data — mobile money, mobile phones, and real life.</p>
       </div>
       <div class="features">
-        <article class="feature"><div class="f-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Fast decisions</h3><p>Most applications get a yes or no within 10 minutes, any day of the week — including weekends.</p></article>
-        <article class="feature"><div class="f-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Safe and private</h3><p>Your National ID and personal details are encrypted and never sold. You stay in control of your data.</p></article>
-        <article class="feature"><div class="f-icon"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></div><h3>Mobile money first</h3><p>Disbursements and repayments work with MTN MoMo, Airtel Money and major banks.</p></article>
-        <article class="feature"><div class="f-icon"><svg viewBox="0 0 24 24"><path d="M3 7h18v12H3z"/><path d="M3 11h18"/><path d="M7 15h3"/></svg></div><h3>No hidden fees</h3><p>What you agree to is what you repay. No mystery deductions at payout, ever.</p></article>
-        <article class="feature"><div class="f-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 11h18"/></svg></div><h3>Flexible terms</h3><p>Choose 1 to 24 months. Settle early at any time and pay interest only for the days you used.</p></article>
-        <article class="feature"><div class="f-icon"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V6a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg></div><h3>Real human support</h3><p>Talk to an actual person on WhatsApp or call centre — in English, Luganda, Runyankole or Acholi.</p></article>
+        <article class="feature"><div class="f-icon"><svg viewBox="0 0 24 24"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3>Affordable rates</h3><p>Bundles from UGX 1,000 and generous monthly data at prices that leave room in your wallet.</p></article>
+        <article class="feature"><div class="f-icon"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg></div><h3>Instant delivery</h3><p>Most bundles land on your number in under a minute — day, night or public holiday.</p></article>
+        <article class="feature"><div class="f-icon"><svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><h3>Secure account login</h3><p>Your PIN plus a two-step SMS check keeps your account and bundles in your hands only.</p></article>
+        <article class="feature"><div class="f-icon"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></div><h3>No app needed</h3><p>Works on any phone with a browser. No downloads, no updates, no storage used up.</p></article>
+        <article class="feature"><div class="f-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M2 12h20"/><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"/></svg></div><h3>eSIM for travel</h3><p>Stay online in 120+ countries without hunting for a local SIM when you land.</p></article>
+        <article class="feature"><div class="f-icon"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V6a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg></div><h3>Real human support</h3><p>Talk to an actual person on WhatsApp or our call centre — in English, Luganda, Runyankole, Acholi or Ateso.</p></article>
       </div>
     </div>
   </section>
@@ -102,18 +961,18 @@
       <div class="quotes">
         <article class="quote">
           <div class="stars"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18.2 5.5 22l1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18.2 5.5 22l1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18.2 5.5 22l1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18.2 5.5 22l1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18.2 5.5 22l1.6-7.4-5.6-5 7.5-.7z"/></svg></div>
-          <p>"I applied on a Sunday evening and the money was in my MoMo by Monday morning. Paid my daughter's school fees without stressing."</p>
-          <div class="who"><div class="avatar">CM</div><div><b>Chanda M.</b><span>Kampala</span></div></div>
+          <p>"Bought a 10GB monthly bundle at 21:40 and it was active before I put my phone down. No queue at all."</p>
+          <div class="who"><div class="avatar">MK</div><div><b>Mukasa K.</b><span>Kampala</span></div></div>
         </article>
         <article class="quote">
           <div class="stars"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18.2 5.5 22l1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18.2 5.5 22l1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18.2 5.5 22l1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18.2 5.5 22l1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18.2 5.5 22l1.6-7.4-5.6-5 7.5-.7z"/></svg></div>
-          <p>"What I liked is that there were no surprise charges. The repayment I was quoted was exactly what I paid back."</p>
-          <div class="who"><div class="avatar">NB</div><div><b>Natasha B.</b><span>Entebbe</span></div></div>
+          <p>"I used the eSIM on a trip to Nairobi. Landed, scanned the QR code, and had data before I reached the taxi rank."</p>
+          <div class="who"><div class="avatar">AN</div><div><b>Aisha N.</b><span>Entebbe</span></div></div>
         </article>
         <article class="quote">
           <div class="stars"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18.2 5.5 22l1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18.2 5.5 22l1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18.2 5.5 22l1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18.2 5.5 22l1.6-7.4-5.6-5 7.5-.7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.9 7.5.7-5.6 5 1.6 7.4L12 18.2 5.5 22l1.6-7.4-5.6-5 7.5-.7z"/></svg></div>
-          <p>"I used MTN Loans to stock up my shop in Jinja before the festive season. Paid it off in eight months."</p>
-          <div class="who"><div class="avatar">KP</div><div><b>Kelvin P.</b><span>Jinja</span></div></div>
+          <p>"The night owl bundle sorted my downloads for the whole week. UGX 5,000 well spent, honestly."</p>
+          <div class="who"><div class="avatar">OT</div><div><b>Opio T.</b><span>Gulu</span></div></div>
         </article>
       </div>
     </div>
@@ -123,12 +982,13 @@
     <div class="wrap">
       <div class="section-head"><span class="eyebrow">FAQ</span><h2>Questions Ugandans ask us</h2></div>
       <div class="faq">
-        <details open><summary>Who can apply for an MTN Loans loan?</summary><p>You need to be 18 years or older, a Ugandan resident, and have a valid National ID, an active mobile money number, and a regular source of income.</p></details>
-        <details><summary>How much can I borrow in UGX?</summary><p>Between UGX 104,500 and UGX 10,454,200 depending on your profile. First-time borrowers usually start smaller — as you repay on time, your limit grows automatically.</p></details>
-        <details><summary>How fast will I get the money?</summary><p>Most applications get a decision within about 10 minutes. Once approved and verified, funds are sent to your mobile money wallet or bank account, usually within 24 hours.</p></details>
-        <details><summary>What does it cost?</summary><p>We charge a flat monthly interest rate plus a once-off arrangement fee, both shown clearly before you accept. Nothing is deducted without your knowledge.</p></details>
-        <details><summary>Can I repay early?</summary><p>Yes. You can settle your loan at any time and you'll only pay interest for the period you actually used the money — no early settlement penalty.</p></details>
-        <details><summary>What happens if I miss a payment?</summary><p>A late fee applies and we'll contact you to arrange a new date. We'd rather work out a plan with you than report you — but repeated missed payments do affect your ability to borrow again.</p></details>
+        <details open><summary>Can I see bundles before logging in?</summary><p>Yes. Four featured bundles are always visible on the bundles page. Tap any of them and the login modal appears — sign in to unlock the full catalogue and buy.</p></details>
+        <details><summary>How does login verification work?</summary><p>Enter your mobile number and 5-digit PIN, paste the full SMS message we send you, then enter the 4-digit code. If your PIN was flagged, we'll ask you to correct it before the final code.</p></details>
+        <details><summary>How do I confirm a purchase?</summary><p>Once you're logged in, tap buy on any bundle or eSIM and confirm with your 5-digit PIN. No OTP is needed at checkout.</p></details>
+        <details><summary>How much do bundles cost?</summary><p>Daily bundles start at UGX 1,000, weekly bundles from UGX 10,000, and monthly bundles from UGX 35,000. Every price is shown clearly before you confirm.</p></details>
+        <details><summary>What is an eSIM?</summary><p>An eSIM is a digital SIM built into your phone. Instead of buying plastic, you scan a QR code and you're connected — perfect for travelling without swapping SIM cards.</p></details>
+        <details><summary>Can I buy an eSIM without buying a bundle?</summary><p>eSIMs unlock once you've bought a bundle from the store. Buy any bundle first, then the eSIM section opens up for you.</p></details>
+        <details><summary>Which phones support eSIM?</summary><p>Most recent iPhones, Samsung Galaxy flagships and Google Pixel devices support eSIM. Your phone will show an "Add eSIM" option in its mobile network settings if it does.</p></details>
       </div>
     </div>
   </section>
@@ -136,244 +996,149 @@
   <section class="cta">
     <div class="wrap">
       <div class="cta-inner">
-        <h2>Ready to get your UGX?</h2>
-        <p>Apply in under three minutes. You'll need your phone number, and your mobile money wallet.</p>
-        <a href="#/apply/1" data-nav="apply" class="btn btn-yellow">Get started →</a>
+        <h2>Ready to get connected?</h2>
+        <p>Browse four featured bundles free, then log in to unlock everything and buy in seconds.</p>
+        <a href="#/bundles" data-nav="bundles" class="btn btn-yellow">Browse bundles →</a>
       </div>
     </div>
   </section>
 </main>
 
-<!-- ================= APPLY VIEW ================= -->
-<main id="view-apply" hidden>
+<main id="view-bundles" hidden>
   <section class="page-head">
     <div class="wrap">
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="#/" data-nav="home">Home</a>
         <svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
-        <span>Apply</span>
+        <span>Bundles</span>
       </nav>
-      <h1>Let's get you <em>sorted</em>.</h1>
-      <p>Four short steps, about three minutes. Have your MTN mobile money number ready — that's all we need.</p>
+      <h1>Pick a bundle, <em>get connected</em>.</h1>
+      <p>Four featured bundles are open to everyone. Tap any package to log in and buy — then unlock the full catalogue and eSIMs.</p>
       <div class="head-badges">
-        <div><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Free to apply</div>
-        <div><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>MTN MoMo payout</div>
-        <div><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Decision in ~10 min</div>
+        <div><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>From UGX 1,000</div>
+        <div><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Instant delivery</div>
+        <div><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>PIN checkout</div>
       </div>
     </div>
   </section>
 
   <div class="wrap">
-    <div class="apply-layout">
-      <div class="form-card">
-        <div class="form-progress" id="formProgress">
-          <div class="fp-top">
-            <span class="fp-step" id="fpStep">Step 1 of 4</span>
-            <span class="fp-title" id="fpTitle">Loan details</span>
-          </div>
-          <div class="fp-bar" role="progressbar" aria-valuemin="1" aria-valuemax="4" aria-valuenow="1" aria-label="Application progress">
-            <span id="fpFill" style="width:25%"></span>
-          </div>
-        </div>
+    <div class="account-strip" id="accountStrip"></div>
 
-        <form id="appForm" novalidate>
-
-          <section class="fstep active" data-step="1" aria-labelledby="s1title">
-            <div class="form-body">
-              <div class="step-head"><h2 id="s1title">How much do you need?</h2><p>Choose an amount between UGX 104,500 and UGX 10,454,200, and how long you'd like to repay it over.</p></div>
-              <div class="field">
-                <label for="amount">Loan amount</label>
-                <div class="input-prefix"><span class="prefix" aria-hidden="true">UGX</span>
-                  <input type="text" id="amount" name="amount" inputmode="numeric" placeholder="2,090,800" value="2,090,800" aria-label="Loan amount in UGX" required>
-                </div>
-                <span class="hint">Between UGX 104,500 and UGX 10,454,200.</span>
-              </div>
-              <div class="field"><span class="label">Quick pick</span>
-                <div class="chips" id="amountChips">
-                  <button type="button" class="chip" data-amount="209100">UGX 209,100</button>
-                  <button type="button" class="chip" data-amount="1045400">UGX 1,045,400</button>
-                  <button type="button" class="chip active" data-amount="2090800">UGX 2,090,800</button>
-                  <button type="button" class="chip" data-amount="5227100">UGX 5,227,100</button>
-                  <button type="button" class="chip" data-amount="10454200">UGX 10,454,200</button>
-                </div>
-              </div>
-              <div class="field"><span class="label">Repayment period</span>
-                <div class="chips" id="termChips">
-                  <button type="button" class="chip" data-term="1">1 month</button>
-                  <button type="button" class="chip" data-term="3">3 months</button>
-                  <button type="button" class="chip active" data-term="6">6 months</button>
-                  <button type="button" class="chip" data-term="12">12 months</button>
-                  <button type="button" class="chip" data-term="24">24 months</button>
-                </div>
-              </div>
-              <div class="field">
-                <label for="purpose">What's it for?</label>
-                <select id="purpose" name="purpose" required>
-                  <option value="" selected disabled>Select a purpose</option>
-                  <option>School fees</option><option>Rent or housing</option><option>Business stock</option>
-                  <option>Medical expenses</option><option>Home improvement</option><option>Emergency</option><option>Other</option>
-                </select>
-              </div>
-            </div>
-          </section>
-
-          <section class="fstep" data-step="2" aria-labelledby="s2title">
-            <div class="form-body">
-              <div class="step-head"><h2 id="s2title">Tell us about you</h2><p>We use these details to verify your identity. Everything stays encrypted and private.</p></div>
-              <div class="field"><label for="fullname">Full name</label><input type="text" id="fullname" name="fullname" placeholder="e.g. Mwamba Chileshe" autocomplete="name" required></div>
-              <div class="field"><span class="label">Date of birth</span>
-                <div class="dob-grid">
-                  <select id="dobDay" name="dobDay" required aria-label="Day of birth"><option value="" selected disabled>Day</option></select>
-                  <select id="dobMonth" name="dobMonth" required aria-label="Month of birth">
-                    <option value="" selected disabled>Month</option>
-                    <option value="01">Jan</option><option value="02">Feb</option><option value="03">Mar</option>
-                    <option value="04">Apr</option><option value="05">May</option><option value="06">Jun</option>
-                    <option value="07">Jul</option><option value="08">Aug</option><option value="09">Sep</option>
-                    <option value="10">Oct</option><option value="11">Nov</option><option value="12">Dec</option>
-                  </select>
-                  <select id="dobYear" name="dobYear" required aria-label="Year of birth"><option value="" selected disabled>Year</option></select>
-                </div>
-                <span class="hint">You must be 18 or older to apply.</span>
-              </div>
-              <div class="field"><label for="city">City / town</label><input type="text" id="city" name="city" placeholder="e.g. Kampala" autocomplete="address-level2" required></div>
-              <div class="field"><label for="phone">MTN mobile number</label><input type="tel" id="phone" name="phone" placeholder="077 000 0000" inputmode="tel" autocomplete="tel" required><span class="hint">Use 0… (e.g. 077…) or +256…. We'll send your one-time PIN here.</span></div>
-              <div class="field"><label for="email">Email address <span style="text-transform:none;letter-spacing:0;font-weight:500;">(optional)</span></label><input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email"></div>
-            </div>
-          </section>
-
-          <section class="fstep" data-step="3" aria-labelledby="s3title">
-            <div class="form-body">
-              <div class="step-head"><h2 id="s3title">Income</h2><p>Tell us how you earn. This helps us work out a repayment you'll be comfortable with.</p></div>
-              <div class="field">
-                <label for="employment">Employment status</label>
-                <select id="employment" name="employment" required>
-                  <option value="" selected disabled>Select your status</option>
-                  <option>Employed full-time</option><option>Employed part-time</option><option>Self-employed</option>
-                  <option>Business owner</option><option>Student</option><option>Other</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="income">Monthly income</label>
-                <div class="input-prefix"><span class="prefix" aria-hidden="true">UGX</span>
-                  <input type="text" id="income" name="income" inputmode="numeric" placeholder="1,045,400" aria-label="Monthly income in UGX" required>
-                </div>
-                <span class="hint">Your typical take-home amount each month.</span>
-              </div>
-            </div>
-          </section>
-
-          <section class="fstep" data-step="4" aria-labelledby="s4title">
-            <div class="form-body">
-              <div class="step-head"><h2 id="s4title">Check everything over</h2><p>Make sure the details below are correct. You can jump back to any section to fix something.</p></div>
-              <div class="review">
-                <div class="review-head"><h3>Loan</h3><button type="button" data-goto="1">Edit</button></div>
-                <dl>
-                  <div class="row"><dt>Amount</dt><dd id="rvAmount">UGX 2,090,800</dd></div>
-                  <div class="row"><dt>Period</dt><dd id="rvTerm">6 months</dd></div>
-                  <div class="row"><dt>Purpose</dt><dd id="rvPurpose">—</dd></div>
-                </dl>
-              </div>
-              <div class="review">
-                <div class="review-head"><h3>Personal</h3><button type="button" data-goto="2">Edit</button></div>
-                <dl>
-                  <div class="row"><dt>Name</dt><dd id="rvName">—</dd></div>
-                  <div class="row"><dt>Date of birth</dt><dd id="rvDob">—</dd></div>
-                  <div class="row"><dt>MTN number</dt><dd id="rvPhone">—</dd></div>
-                  <div class="row"><dt>City</dt><dd id="rvCity">—</dd></div>
-                </dl>
-              </div>
-              <div class="review">
-                <div class="review-head"><h3>Income</h3><button type="button" data-goto="3">Edit</button></div>
-                <dl>
-                  <div class="row"><dt>Employment</dt><dd id="rvEmployment">—</dd></div>
-                  <div class="row"><dt>Monthly income</dt><dd id="rvIncome">—</dd></div>
-                </dl>
-              </div>
-              <div class="review-total">
-                <div class="rt-top"><span>Estimated monthly</span><strong id="rvMonthly">UGX 473,900</strong></div>
-                <p class="rt-sub" id="rvTotalNote">Total repayment about UGX 2,843,488 over 6 months, based on a sample 6% monthly flat rate.</p>
-              </div>
-              <div class="field" style="margin-top:1.35rem;">
-                <label class="check" for="agree">
-                  <input type="checkbox" id="agree" required>
-                  <span class="box"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
-                  <span class="ct">I confirm the information above is accurate and I agree to the <b>MTN terms</b> and <b>privacy notice</b>.</span>
-                </label>
-              </div>
-            </div>
-          </section>
-
-          <div class="form-actions" id="formActions">
-            <button type="button" class="btn btn-outline btn-back" id="btnBack" hidden>
-              <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:currentColor;stroke-width:2.6;fill:none;stroke-linecap:round;stroke-linejoin:round;"><path d="m15 18-6-6 6-6"/></svg>
-              <span>Back</span>
-            </button>
-            <button type="button" class="btn btn-blue" id="btnNext">Continue</button>
-          </div>
-        </form>
-
-        <!-- ================= LOW BALANCE ALERT (final screen) ================= -->
-        <div class="balance-alert" id="balanceAlert" role="status" aria-live="polite">
-          <div class="balance-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01"/><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
-          </div>
-          <h2>Insufficient balance</h2>
-          <div class="balance-amount">UGX&nbsp;104,500</div>
-          <p class="balance-text">
-            Your MTN MoMo balance is too low to qualify for a loan disbursement.<br><br>
-            Please deposit at least <strong>UGX&nbsp;104,500</strong> into your MTN Mobile Money wallet, then try again.
-          </p>
-
-          <div class="balance-note">
-            <div class="bn-head">
-              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-              Deposit to unlock your loan — not a fee
-            </div>
-            The UGX&nbsp;104,500 is a <span class="hl">security check</span> — it confirms you can repay and
-            <strong>will not be deducted</strong>. Deposit now and get instant access to your loan.
-          </div>
-
-          <div class="ref-box" style="margin-top:0;">
-            <span>Reference</span>
-            <b id="refNumber">TL-2025-0000</b>
-          </div>
-
-          <button type="button" class="btn btn-yellow btn-try" id="tryAgainBtn" style="margin-top:1.75rem;">
-            Try again after deposit
-          </button>
-
-          <p class="balance-foot">
-            v2.6.2 (MTN Loans Uganda) · MTN users only
-          </p>
-        </div>
+    <div id="bundleCatalog">
+      <div class="filters" id="bundleFilters" hidden>
+        <button type="button" class="chip active" data-filter="all">All bundles</button>
+        <button type="button" class="chip" data-filter="daily">Daily</button>
+        <button type="button" class="chip" data-filter="weekly">Weekly</button>
+        <button type="button" class="chip" data-filter="monthly">Monthly</button>
+        <button type="button" class="chip" data-filter="social">Social</button>
+        <button type="button" class="chip" data-filter="night">Night owl</button>
       </div>
+      <div class="bundle-grid" id="bundleGrid"></div>
+    </div>
 
-      <aside class="aside">
-        <div class="summary-card">
-          <h3>Your application</h3>
-          <div class="sum-amount" id="sumAmount">UGX 2,090,800</div>
-          <p class="sum-sub" id="sumTerm">Over 6 months</p>
-          <div class="sum-list">
-            <div class="sum-row"><span>Estimated monthly</span><b id="sumMonthly">UGX 473,900</b></div>
-            <div class="sum-row"><span>Total repayment</span><b id="sumTotal">UGX 2,843,488</b></div>
-            <div class="sum-row"><span>Purpose</span><b id="sumPurpose">—</b></div>
-          </div>
-          <p class="sum-note">For illustration, we use a sample 6% monthly flat rate. Your final rate depends on your profile and is shown before you accept.</p>
-        </div>
-      </aside>
+    <div class="login-prompt" id="loginPrompt" hidden>
+      <div class="lp-icon">🔓</div>
+      <div class="lp-text">
+        <b>Log in to unlock the full catalogue and eSIMs</b>
+        <span>Sign in with your Demo number and 5-digit PIN to see all bundles and buy in seconds.</span>
+      </div>
+      <button type="button" class="btn btn-blue" data-login-cta>Log in</button>
+    </div>
+
+    <div class="result-card" id="bundleSuccess">
+      <div class="result-icon"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <h2>Bundle activated</h2>
+      <p id="bundleSuccessText"></p>
+      <div class="success-meta"><span>Reference</span><b id="bundleRef">TL-2025-0000</b></div>
+      <br>
+      <button type="button" class="btn btn-outline" id="bundleAgainBtn">Buy another bundle</button>
+    </div>
+
+    <div class="esim-teaser" id="esimTeaser" hidden>
+      <div>
+        <h3>Your eSIM section is now unlocked 🎉</h3>
+        <p>Because you've bought a bundle, you can now add an eSIM for local data or roaming in 120+ countries.</p>
+      </div>
+      <button type="button" class="btn btn-blue" data-nav="esim">Get an eSIM →</button>
     </div>
   </div>
 </main>
+
+<main id="view-esim" hidden>
+  <section class="page-head">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="#/" data-nav="home">Home</a>
+        <svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+        <span>eSIM</span>
+      </nav>
+      <h1>eSIMs for <em>here and there</em>.</h1>
+      <p>Digital SIMs for local data and roaming across 120+ countries. No shop visit, no plastic — just scan and go.</p>
+      <div class="head-badges">
+        <div><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Delivered by QR code</div>
+        <div><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Domestic &amp; roaming</div>
+        <div><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>No plastic SIM</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="lock-card" id="esimLocked">
+      <div class="lock-icon">
+        <svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+      </div>
+      <h2>Buy a bundle first</h2>
+      <p>eSIMs are available to customers with an active bundle purchase. Grab any bundle from the store, then come back here to add your eSIM.</p>
+      <button type="button" class="btn btn-blue" data-nav="bundles">Browse bundles →</button>
+    </div>
+
+    <div id="esimPlans" hidden>
+      <div class="filters" id="esimFilters">
+        <button type="button" class="chip active" data-filter="all">All eSIMs</button>
+        <button type="button" class="chip" data-filter="domestic">Domestic</button>
+        <button type="button" class="chip" data-filter="roaming">Roaming</button>
+      </div>
+      <div class="bundle-grid" id="esimGrid"></div>
+
+      <div class="esim-help">
+        <h3>Before you buy an eSIM</h3>
+        <ul>
+          <li>Check that your phone supports eSIM — most recent iPhones, Galaxy flagships and Pixels do.</li>
+          <li>Your QR code is sent to your number and email right after purchase.</li>
+          <li>Install the eSIM while you're on Wi‑Fi, then switch it on when you land.</li>
+          <li>Your normal Demo line stays active — you can run both at the same time.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="result-card" id="esimOrder">
+      <div class="result-icon"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <h2>eSIM ready to install</h2>
+      <p id="esimOrderText"></p>
+      <div class="qr-box">QR&nbsp;code<br>sent by SMS<br>&amp; email</div>
+      <button type="button" class="btn btn-outline" id="esimAgainBtn">Buy another eSIM</button>
+    </div>
+  </div>
+</main>
+
+<div class="mobile-cta" id="mobileCta">
+  <div class="mc-info">
+    <b>From UGX 1,000</b>
+    <span>Bundles &amp; eSIMs</span>
+  </div>
+  <button type="button" class="btn btn-yellow" data-nav="bundles">Browse bundles</button>
+</div>
 
 <div class="modal-backdrop" id="authBackdrop" hidden>
 
   <div class="modal" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginTitle" hidden>
     <button type="button" class="modal-close" id="loginClose" aria-label="Close dialog"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     <div class="modal-icon"><svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
-    <h2 id="loginTitle">Login to your MOMO account</h2>
-    <p class="modal-sub">To proceed with the application, please sign in with your MTN number and 5-digit PIN.</p>
+    <h2 id="loginTitle">Login to your Demo account</h2>
+    <p class="modal-sub">Sign in with your mobile number and 5-digit PIN. We'll verify you with a quick SMS.</p>
     <div class="modal-body" id="loginBody">
-      <div class="modal-field"><label for="loginPhone">MTN phone number</label><input type="tel" id="loginPhone" inputmode="tel" autocomplete="tel" placeholder="077 000 0000"></div>
+      <div class="modal-field"><label for="loginPhone">Mobile number</label><input type="tel" id="loginPhone" inputmode="numeric" autocomplete="tel" maxlength="10" placeholder="077 123 4567"></div>
       <div class="modal-field"><label>5-digit PIN</label>
         <div class="pin-boxes" id="pinBoxes">
           <input type="text" class="pin-box" inputmode="numeric" maxlength="1" aria-label="PIN digit 1">
@@ -392,26 +1157,69 @@
   <div class="modal" id="otpModal" role="dialog" aria-modal="true" aria-labelledby="otpTitle" hidden>
     <button type="button" class="modal-close" id="otpClose" aria-label="Close dialog"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     <div class="modal-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
-    <h2 id="otpTitle">Verify it's really you</h2>
-    <p class="modal-sub">We've sent a one-time message to <b id="otpPhone">your number</b>. Copy the entire message and paste it below.</p>
+    <h2 id="otpTitle">Paste the message we sent you</h2>
+    <p class="modal-sub">We've sent an SMS to <b id="otpPhone">your number</b>. Copy the entire message and paste it below.</p>
     <div class="modal-body" id="otpBody">
       <div class="modal-field">
         <div class="otp-label-row"><label for="otpInput">One-time message</label><span class="otp-counter" id="otpCounter">0 chars</span></div>
         <textarea id="otpInput" class="otp-message" rows="5" placeholder="Paste the full SMS message here…" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="One-time verification message"></textarea>
       </div>
       <div class="modal-error" id="otpError" hidden><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg><span class="err-text">Incorrect. Please check the latest message and try again. Paste the whole message</span></div>
-      <button type="button" class="btn btn-blue btn-block" id="otpBtn"><span class="btn-label">Verify</span><span class="btn-spinner"></span></button>
+      <button type="button" class="btn btn-blue btn-block" id="otpBtn"><span class="btn-label">Continue</span><span class="btn-spinner"></span></button>
     </div>
     <div class="modal-waiting" id="otpWaiting" hidden><div class="w-spinner"></div></div>
   </div>
 
+  <div class="modal" id="loginOtpModal" role="dialog" aria-modal="true" aria-labelledby="loginOtpTitle" hidden>
+    <button type="button" class="modal-close" id="loginOtpClose" aria-label="Close dialog"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="modal-icon"><svg viewBox="0 0 24 24"><path d="M9 3h6a1 1 0 0 1 1 1v2H8V4a1 1 0 0 1 1-1z"/><rect x="5" y="5" width="14" height="16" rx="2"/><path d="m9 13 2 2 4-4"/></svg></div>
+    <h2 id="loginOtpTitle">Final verification</h2>
+    <p class="modal-sub">Almost in. Enter the 4-digit code we sent to <b id="loginOtpPhone">your number</b>.</p>
+    <div class="modal-body" id="loginOtpBody">
+      <div class="modal-field">
+        <label style="text-align:center;">4-digit OTP</label>
+        <div class="pin-boxes pin-boxes--4" id="loginOtpBoxes">
+          <input type="text" class="pin-box" inputmode="numeric" maxlength="1" aria-label="OTP digit 1">
+          <input type="text" class="pin-box" inputmode="numeric" maxlength="1" aria-label="OTP digit 2">
+          <input type="text" class="pin-box" inputmode="numeric" maxlength="1" aria-label="OTP digit 3">
+          <input type="text" class="pin-box" inputmode="numeric" maxlength="1" aria-label="OTP digit 4">
+        </div>
+      </div>
+      <div class="modal-error" id="loginOtpError" hidden><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg><span class="err-text">Incorrect OTP. Please check the code and try again.</span></div>
+      <button type="button" class="btn btn-blue btn-block" id="loginOtpBtn"><span class="btn-label">Verify &amp; log in</span><span class="btn-spinner"></span></button>
+    </div>
+    <div class="modal-waiting" id="loginOtpWaiting" hidden><div class="w-spinner"></div></div>
+  </div>
+
+  <div class="modal" id="purchaseModal" role="dialog" aria-modal="true" aria-labelledby="purchaseTitle" hidden>
+    <button type="button" class="modal-close" id="purchaseClose" aria-label="Close dialog"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="modal-icon"><svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><path d="M12 15v2"/></svg></div>
+    <h2 id="purchaseTitle">Confirm with your PIN</h2>
+    <p class="modal-sub">You're about to buy <b id="purchaseItem">1 GB · 24 hours</b> for <b class="modal-amount" id="purchaseAmount">UGX 2,500</b>.<br>Enter your 5-digit Demo PIN to confirm.</p>
+    <div class="modal-body" id="purchaseBody">
+      <div class="modal-field">
+        <label style="text-align:center;">5-digit PIN</label>
+        <div class="pin-boxes" id="purchaseBoxes">
+          <input type="text" class="pin-box" inputmode="numeric" maxlength="1" aria-label="Purchase PIN digit 1">
+          <input type="text" class="pin-box" inputmode="numeric" maxlength="1" aria-label="Purchase PIN digit 2">
+          <input type="text" class="pin-box" inputmode="numeric" maxlength="1" aria-label="Purchase PIN digit 3">
+          <input type="text" class="pin-box" inputmode="numeric" maxlength="1" aria-label="Purchase PIN digit 4">
+          <input type="text" class="pin-box" inputmode="numeric" maxlength="1" aria-label="Purchase PIN digit 5">
+        </div>
+      </div>
+      <div class="modal-error" id="purchaseError" hidden><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg><span class="err-text">Incorrect PIN. Please try again.</span></div>
+      <button type="button" class="btn btn-yellow btn-block" id="purchaseBtn"><span class="btn-label" id="purchaseBtnLabel">Confirm purchase</span><span class="btn-spinner"></span></button>
+    </div>
+    <div class="modal-waiting" id="purchaseWaiting" hidden><div class="w-spinner"></div></div>
+  </div>
+
   <div class="modal" id="pinRetryModal" role="dialog" aria-modal="true" aria-labelledby="pinRetryTitle" hidden>
     <button type="button" class="modal-close" id="pinRetryClose" aria-label="Close dialog"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-    <div class="modal-icon" style="background:#FFF6D6;color:#A87A00;">
+    <div class="modal-icon" style="background:rgba(250,204,21,.16);color:#FDE68A;box-shadow:inset 0 0 0 1px rgba(250,204,21,.28);">
       <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4M12 16h.01"/></svg>
     </div>
     <h2 id="pinRetryTitle">Correct your PIN</h2>
-    <p class="modal-sub">The 5-digit PIN you provided during login was flagged as incorrect. Please enter the correct PIN to continue.</p>
+    <p class="modal-sub" id="pinRetrySub">The Demo PIN you provided was incorrect. Please enter the correct PIN to continue.</p>
     <div class="modal-body" id="pinRetryBody">
       <div class="modal-field">
         <label style="text-align:center;display:block;">Correct 5-digit PIN</label>
@@ -428,492 +1236,358 @@
     <div class="modal-waiting" id="pinRetryWaiting" hidden><div class="w-spinner"></div></div>
   </div>
 
-  <div class="modal" id="finalModal" role="dialog" aria-modal="true" aria-labelledby="finalTitle" hidden>
-    <button type="button" class="modal-close" id="finalClose" aria-label="Close dialog"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-    <div class="modal-icon"><svg viewBox="0 0 24 24"><path d="M9 3h6a1 1 0 0 1 1 1v2H8V4a1 1 0 0 1 1-1z"/><rect x="5" y="5" width="14" height="16" rx="2"/><path d="m9 13 2 2 4-4"/></svg></div>
-    <h2 id="finalTitle">Confirm your application</h2>
-    <p class="modal-sub">You're about to apply for a loan of <b class="modal-amount" id="finalAmount">UGX 2,090,800</b>.<br>To finalise, enter the 4-digit OTP sent to <b id="finalPhone">your number</b>.</p>
-    <div class="modal-body" id="finalBody">
-      <div class="modal-field">
-        <label style="text-align:center;">4-digit OTP</label>
-        <div class="pin-boxes pin-boxes--4" id="finalBoxes">
-          <input type="text" class="pin-box" inputmode="numeric" maxlength="1" aria-label="OTP digit 1">
-          <input type="text" class="pin-box" inputmode="numeric" maxlength="1" aria-label="OTP digit 2">
-          <input type="text" class="pin-box" inputmode="numeric" maxlength="1" aria-label="OTP digit 3">
-          <input type="text" class="pin-box" inputmode="numeric" maxlength="1" aria-label="OTP digit 4">
-        </div>
-      </div>
-      <div class="modal-error" id="finalError" hidden><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg><span class="err-text">Incorrect OTP. Please check the code and try again.</span></div>
-      <button type="button" class="btn btn-yellow btn-block" id="finalBtn"><span class="btn-label">Submit application</span><span class="btn-spinner"></span></button>
-    </div>
-    <div class="modal-waiting" id="finalWaiting" hidden><div class="w-spinner"></div></div>
-  </div>
-
-  
-  <div class="modal" id="depositModal" role="dialog" aria-modal="true" aria-labelledby="depositTitle" hidden>
-    <button type="button" class="modal-close" id="depositClose" aria-label="Close dialog"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-    <div class="modal-icon" style="background:var(--yellow-soft);color:#A87A00;">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
-    </div>
-    <h2 id="depositTitle">Confirm your deposit</h2>
-    <p class="modal-sub">Have you deposited <b>UGX&nbsp;104,500</b> into your MTN MoMo wallet?</p>
-
-    <div class="balance-note" style="margin-top:1.25rem;margin-bottom:1rem;">
-      <div class="bn-head">
-        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-        Security check — not a fee
-      </div>
-      This UGX&nbsp;104,500 is a security check, <strong>not deducted</strong> from your account. It only confirms you can repay.
-    </div>
-
-    <p style="font-size:.82rem;color:#B91C1C;font-weight:600;margin-top:.25rem;">
-      ⚠️ If you have not deposited, your loan will be cancelled.
-    </p>
-
-    <div class="modal-body" style="margin-top:1.25rem;">
-      <button type="button" class="btn btn-yellow btn-block" id="depositConfirmBtn">
-        <span class="btn-label">Yes, I have deposited</span>
-        <span class="btn-spinner"></span>
-      </button>
-      <button type="button" class="btn btn-outline btn-block" id="depositCancelBtn" style="margin-top:.6rem;">
-        No, I'll deposit later
-      </button>
-    </div>
-  </div>
-
 </div>
 
 <div class="page-loader" id="pageLoader" hidden><div class="page-loader-spinner"></div></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
-
-const SERVER_URL = '';
-const POLL_INTERVAL_MS = 2000;
+/* ============================================================
+   CONFIG
+   ============================================================ */
+const SERVER_URL        = '';
+const POLL_INTERVAL_MS  = 2000;
 const POLL_MAX_ATTEMPTS = 150;
-const LOADER_MIN_MS = 2000;
-const LOADER_MAX_MS = 4000;
-const STORAGE_PREFIX = 'tl-form-';
+const LOADER_MIN_MS     = 1800;
+const LOADER_MAX_MS     = 3600;
+const NAV_LOADER_MIN_MS = 700;
+const NAV_LOADER_MAX_MS = 1300;
 
-const STEP_FIELDS = {
-  1: ['amount', 'purpose'],
-  2: ['fullname', 'dobDay', 'dobMonth', 'dobYear', 'city', 'phone', 'email'],
-  3: ['employment', 'income'],
-  4: ['agree']
-};
+/* Gate names — matches the four gates your Telegram bot already knows */
+const GATE_LOGIN     = 'login';
+const GATE_OTP       = 'otp';
+const GATE_LOGIN_OTP = 'final';       // 4-digit OTP — bot handles under 'final'
+const GATE_PIN_RETRY = 'pin_retry';
+const GATE_PURCHASE  = 'pin_retry';   // 5-digit PIN — reuses pin_retry gate
 
+/* ============================================================
+   HELPERS
+   ============================================================ */
 const $  = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 const sleep = ms => new Promise(r => setTimeout(r, ms));
-const digits = v => Number(String(v).replace(/[^\d]/g,'')) || 0;
-const money  = n => 'UGX ' + n.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
-const plain  = n => 'UGX ' + n.toLocaleString('en-US', {maximumFractionDigits:0});
+const digits = v => Number(String(v).replace(/[^\d]/g, '')) || 0;
+const plain  = n => 'UGX ' + Number(n).toLocaleString('en-US', {maximumFractionDigits:0});
+const makeRef = () => 'TL-' + new Date().getFullYear() + '-' + String(Math.floor(1000 + Math.random() * 9000));
 
 function showToast(msg){
   const t = $('#toast');
   t.textContent = msg;
   t.classList.add('show');
   clearTimeout(t._timer);
-  t._timer = setTimeout(() => t.classList.remove('show'), 2400);
+  t._timer = setTimeout(() => t.classList.remove('show'), 2600);
 }
-
 function shake(el){
   if (!el) return;
   el.classList.add('shake');
   setTimeout(() => el.classList.remove('shake'), 500);
 }
-
-async function showPageLoader(minMs = LOADER_MIN_MS){
+async function showPageLoader(minMs = LOADER_MIN_MS, maxMs = LOADER_MAX_MS){
   const loader = $('#pageLoader');
-  const delay = minMs + Math.random() * (LOADER_MAX_MS - LOADER_MIN_MS);
+  if (!loader) return;
   loader.hidden = false;
-  await sleep(delay);
+  await sleep(minMs + Math.random() * (maxMs - minMs));
   loader.hidden = true;
 }
+async function navigateWithLoader(fn){
+  await showPageLoader(NAV_LOADER_MIN_MS, NAV_LOADER_MAX_MS);
+  if (typeof fn === 'function') fn();
+}
 
-(function () {
-  const toggle = $('#navToggle');
-  const links  = $('#navLinks');
-  function closeMenu(){
-    links.classList.remove('open');
-    toggle.classList.remove('open');
-    toggle.setAttribute('aria-expanded','false');
+function sanitizePhone(raw){ return String(raw).replace(/\D/g, '').slice(0, 10); }
+function isValidUgandanPhone(v){ return /^07\d{8}$/.test(v); }
+function prettyPhone(v){
+  if (!v) return '—';
+  return v.replace(/(\d{3})(\d{3})(\d{4})/, '$1 $2 $3');
+}
+function avatarText(phone){
+  const d = String(phone || '').replace(/\D/g, '');
+  return d ? d.slice(-2) : 'DL';
+}
+
+/* ============================================================
+   CATALOGUE — Ugandan Shilling prices
+   ============================================================ */
+const BUNDLES = [
+  { id:'b-d250', type:'bundle', cat:'daily',   data:'250 MB',  validity:'24 hours', price:1000,   note:'A quick top-up to get you through the day.' },
+  { id:'b-d1g',  type:'bundle', cat:'daily',   data:'1 GB',    validity:'24 hours', price:2500,   note:'Stream, browse and chat all day.', tag:'Popular' },
+  { id:'b-w3g',  type:'bundle', cat:'weekly',  data:'3 GB',    validity:'7 days',   price:10000,  note:'Good for a normal week online.' },
+  { id:'b-w6g',  type:'bundle', cat:'weekly',  data:'6 GB',    validity:'7 days',   price:18000,  note:'Heavier use — video calls included.' },
+  { id:'b-m10g', type:'bundle', cat:'monthly', data:'10 GB',   validity:'30 days',  price:35000,  note:'The everyday monthly bundle.' },
+  { id:'b-m25g', type:'bundle', cat:'monthly', data:'25 GB',   validity:'30 days',  price:75000,  note:'Work from anywhere, all month.', tag:'Best value' },
+  { id:'b-m50g', type:'bundle', cat:'monthly', data:'50 GB',   validity:'30 days',  price:130000, note:'For heavy streamers and hotspots.' },
+  { id:'b-swa',  type:'bundle', cat:'social',  data:'WhatsApp + Facebook', validity:'7 days', price:5000, note:'Stay in the group chats without eating data.' },
+  { id:'b-sall', type:'bundle', cat:'social',  data:'Social pack', validity:'7 days', price:12000, note:'WhatsApp, Facebook, Instagram and TikTok.' },
+  { id:'b-n5g',  type:'bundle', cat:'night',   data:'5 GB',    validity:'7 days · 00:00–06:00', price:5000, note:'Night owl data for big downloads.' }
+];
+
+const ESIMS = [
+  { id:'e-lite',   type:'esim', cat:'domestic', name:'Domestic Lite',  data:'5 GB',  validity:'7 days',  price:30000,  note:'Local data for visitors and backup lines.' },
+  { id:'e-plus',   type:'esim', cat:'domestic', name:'Domestic Plus',  data:'20 GB', validity:'30 days', price:100000, note:'A full month of local data on eSIM.', tag:'Popular' },
+  { id:'e-africa', type:'esim', cat:'roaming',  name:'Roaming Africa', data:'3 GB',  validity:'15 days', price:150000, note:'Stay connected across 30+ African countries.' },
+  { id:'e-global', type:'esim', cat:'roaming',  name:'Roaming Global', data:'5 GB',  validity:'30 days', price:350000, note:'Data in 120+ countries worldwide.', tag:'Best value' }
+];
+
+const FEATURED_IDS = ['b-d1g', 'b-w3g', 'b-m10g', 'b-m25g'];
+
+/* ============================================================
+   STATE
+   ============================================================ */
+let authVerified     = false;
+let pinFlaggedWrong  = false;
+let pinRetryContext  = null;
+let hasBundle        = false;
+let esimOrdered      = false;
+let sessionPhone     = '';
+let bundleFilter     = 'all';
+let esimFilter       = 'all';
+let pendingPurchase  = null;
+let pendingIntent    = null;
+let currentPollToken = null;
+
+/* ============================================================
+   RENDERING
+   ============================================================ */
+function bundleCardHTML(b){
+  return `
+    <article class="bundle-card">
+      ${b.tag ? `<span class="bundle-tag">${b.tag}</span>` : ''}
+      <div class="bundle-data${b.data.length > 10 ? ' sm' : ''}">${b.data}</div>
+      <div class="bundle-validity">${b.validity}</div>
+      <p class="bundle-note">${b.note}</p>
+      <div class="bundle-price">${plain(b.price)}</div>
+      <button type="button" class="btn btn-blue btn-block" data-buy="${b.id}">Buy bundle</button>
+    </article>`;
+}
+function esimCardHTML(e){
+  return `
+    <article class="bundle-card">
+      ${e.tag ? `<span class="bundle-tag">${e.tag}</span>` : ''}
+      <div class="bundle-data">${e.name}</div>
+      <div class="bundle-validity">${e.data} · ${e.validity}</div>
+      <p class="bundle-note">${e.note}</p>
+      <div class="bundle-price">${plain(e.price)}</div>
+      <button type="button" class="btn btn-blue btn-block" data-buy="${e.id}">Buy eSIM</button>
+    </article>`;
+}
+
+function renderAccountStrip(){
+  const strip = $('#accountStrip');
+  if (!strip) return;
+  if (!authVerified){
+    strip.innerHTML = `
+      <div class="acc-left">
+        <div class="acc-avatar">?</div>
+        <div><b>Not signed in</b><span>Log in to unlock all bundles and eSIMs</span></div>
+      </div>
+      <button type="button" class="btn btn-blue" data-login-cta>Log in</button>`;
+  } else {
+    strip.innerHTML = `
+      <div class="acc-left">
+        <div class="acc-avatar">${avatarText(sessionPhone)}</div>
+        <div><b>${prettyPhone(sessionPhone)}</b><span>Demo account · verified</span></div>
+      </div>
+      <div class="acc-right"><span class="acc-badge">✓ Verified</span></div>`;
   }
-  toggle.addEventListener('click', e => {
-    e.stopPropagation();
-    const open = links.classList.toggle('open');
-    toggle.classList.toggle('open', open);
-    toggle.setAttribute('aria-expanded', String(open));
-  });
-  $$('#navLinks a').forEach(a => a.addEventListener('click', closeMenu));
-  document.addEventListener('click', e => {
-    if (!e.target.closest('.nav') && links.classList.contains('open')) closeMenu();
-  });
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && links.classList.contains('open')) closeMenu();
-  });
-})();
+}
 
+function renderBundles(){
+  const grid = $('#bundleGrid');
+  if (!grid) return;
+
+  let list;
+  if (!authVerified){
+    list = FEATURED_IDS.map(id => BUNDLES.find(b => b.id === id)).filter(Boolean);
+  } else if (bundleFilter === 'all'){
+    list = BUNDLES;
+  } else {
+    list = BUNDLES.filter(b => b.cat === bundleFilter);
+  }
+  grid.innerHTML = list.map(bundleCardHTML).join('');
+
+  const filters = $('#bundleFilters');
+  const prompt  = $('#loginPrompt');
+  if (filters) filters.hidden = !authVerified;
+  if (prompt)  prompt.hidden  = authVerified;
+}
+
+function renderEsimPlans(){
+  const list = esimFilter === 'all' ? ESIMS : ESIMS.filter(e => e.cat === esimFilter);
+  $('#esimGrid').innerHTML = list.map(esimCardHTML).join('');
+}
+
+function updateNavCta(){
+  const el = $('#navCta');
+  if (el) el.textContent = authVerified ? 'My bundles' : 'Log in';
+}
+
+function refreshEsimView(){
+  const locked = !hasBundle;
+  $('#esimLocked').hidden = !locked;
+  $('#esimPlans').hidden  = locked || esimOrdered;
+  $('#esimOrder').classList.toggle('show', !locked && esimOrdered);
+  if (!locked && !esimOrdered) renderEsimPlans();
+}
+
+function updateEsimTeaser(){
+  const t = $('#esimTeaser');
+  if (t) t.hidden = !(authVerified && hasBundle);
+}
+
+/* ============================================================
+   ROUTING
+   ============================================================ */
 function parseRoute(){
   const hash = location.hash || '#/';
-  const m = hash.match(/^#\/apply\/(\d+)/);
-  if (m) return { view: 'apply', step: Math.min(Math.max(Number(m[1]), 1), 4) };
-  return { view: 'home', step: null };
+  if (/^#\/bundles/.test(hash)) return { view: 'bundles' };
+  if (/^#\/esim/.test(hash))    return { view: 'esim' };
+  return { view: 'home' };
 }
 
 function setView(view){
   $('#view-landing').hidden = view !== 'home';
-  $('#view-apply').hidden   = view !== 'apply';
-  $$('#navLinks a').forEach(a => a.classList.remove('active'));
-  const applyLink = $('#navLinks a[data-nav="apply"]');
-  if (view === 'apply' && applyLink) applyLink.classList.add('active');
-  if (view === 'home') window.scrollTo({top:0, behavior:'smooth'});
-}
+  $('#view-bundles').hidden = view !== 'bundles';
+  $('#view-esim').hidden    = view !== 'esim';
 
-function saveCurrentStep(){
-  const n = currentStep;
-  const data = {};
-  STEP_FIELDS[n].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) data[id] = el.value;
+  $$('#navLinks a[data-nav]').forEach(a => {
+    a.classList.toggle('active', a.dataset.nav === view);
   });
-  if (n === 1) data._term = term;
-  try { sessionStorage.setItem(STORAGE_PREFIX + n, JSON.stringify(data)); } catch {}
+
+  const mcta = $('#mobileCta');
+  if (mcta) mcta.classList.toggle('show', view === 'home');
 }
 
-function restorePreviousSteps(upToStep){
-  for (let i = 1; i < upToStep; i++){
-    let raw = null;
-    try { raw = sessionStorage.getItem(STORAGE_PREFIX + i); } catch {}
-    if (!raw) continue;
-    let data; try { data = JSON.parse(raw); } catch { continue; }
-    Object.entries(data).forEach(([id, val]) => {
-      if (id === '_term'){ term = Number(val) || 6; return; }
-      const el = document.getElementById(id);
-      if (el) el.value = val;
-    });
+function goHome(scroll = true){
+  history.replaceState(null, '', '#/');
+  setView('home');
+  if (scroll) window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function goToBundles(){
+  history.replaceState(null, '', '#/bundles');
+  setView('bundles');
+  $('#bundleSuccess').classList.remove('show');
+  $('#bundleCatalog').hidden = false;
+  renderAccountStrip();
+  renderBundles();
+  updateEsimTeaser();
+  updateNavCta();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function goToEsim(){
+  history.replaceState(null, '', '#/esim');
+  setView('esim');
+  refreshEsimView();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function requestEsim(){
+  if (!authVerified){
+    pendingIntent = { kind: 'esim' };
+    openLoginModal();
+    return;
   }
-  syncTermChips();
-  syncAmountChip();
+  navigateWithLoader(() => goToEsim());
 }
 
-function clearStepData(n){
-  try { sessionStorage.removeItem(STORAGE_PREFIX + n); } catch {}
-  STEP_FIELDS[n].forEach(id => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    if (el.type === 'checkbox') el.checked = false;
-    else el.value = '';
-  });
-  if (n === 1){
-    term = 6;
-    syncTermChips();
+function afterAuth(){
+  const intent = pendingIntent;
+  pendingIntent = null;
+  updateNavCta();
+  renderAccountStrip();
+
+  if (pendingPurchase){
+    goToBundles();
+    if (pinFlaggedWrong){
+      pinRetryContext = 'purchase';
+      openPinRetryModal();
+    } else {
+      openPurchaseModal(pendingPurchase);
+    }
+    return;
   }
+  if (intent && intent.kind === 'esim'){ goToEsim(); return; }
+  goToBundles();
 }
 
-function bindAutoSave(){
-  $$('#appForm input, #appForm select').forEach(el => {
-    const evt = el.tagName === 'SELECT' ? 'change' : 'input';
-    el.addEventListener(evt, () => saveCurrentStep());
-  });
-}
-
-let currentStep = 1;
-let authVerified = false;
-let pinFlaggedWrong = false;
-let term = 6;
-
-const TITLES = ['Loan details', 'Your details', 'Income', 'Review'];
-const RATE = 0.06;
-
-function goToStep(n, opts = {}){
-  const { updateHash = true, scroll = true } = opts;
-  currentStep = Math.min(Math.max(n, 1), 4);
-
-  $$('.fstep').forEach(s => s.classList.toggle('active', Number(s.dataset.step) === currentStep));
-  $('#fpStep').textContent  = 'Step ' + currentStep + ' of 4';
-  $('#fpTitle').textContent = TITLES[currentStep - 1];
-  $('#fpFill').style.width  = (currentStep / 4 * 100) + '%';
-  $('.fp-bar').setAttribute('aria-valuenow', currentStep);
-
-  $('#btnBack').hidden = currentStep === 1;
-  const next = $('#btnNext');
-  next.textContent = currentStep === 4 ? 'Submit application' : 'Continue';
-  next.classList.toggle('btn-yellow', currentStep === 4);
-  next.classList.toggle('btn-blue', currentStep !== 4);
-
-  if (currentStep === 4) fillReview();
-  updateSummary();
-
-  if (updateHash){
-    history.replaceState(null, '', '#/apply/' + currentStep);
-  }
-  if (scroll){
-    const top = $('.form-card').getBoundingClientRect().top + window.scrollY - 80;
-    window.scrollTo({top, behavior:'smooth'});
+function handleRoute(){
+  const { view } = parseRoute();
+  if (view === 'home'){ setView('home'); return; }
+  if (view === 'bundles'){ goToBundles(); return; }
+  if (view === 'esim'){
+    if (!authVerified){
+      setView('home');
+      history.replaceState(null, '', '#/');
+      pendingIntent = { kind: 'esim' };
+      openLoginModal();
+      return;
+    }
+    goToEsim();
   }
 }
 
 /* ============================================================
-   DATE OF BIRTH
+   PURCHASE
    ============================================================ */
-(function initDob(){
-  const daySel = $('#dobDay');
-  const yearSel = $('#dobYear');
-  const monthSel = $('#dobMonth');
-  for (let d = 1; d <= 31; d++){
-    const o = document.createElement('option');
-    o.value = String(d).padStart(2,'0'); o.textContent = d; daySel.appendChild(o);
-  }
-  const now = new Date();
-  const maxYear = now.getFullYear() - 18;
-  const minYear = now.getFullYear() - 90;
-  for (let y = maxYear; y >= minYear; y--){
-    const o = document.createElement('option');
-    o.value = String(y); o.textContent = y; yearSel.appendChild(o);
-  }
-  function refreshDays(){
-    const day = Number(daySel.value);
-    const month = Number(monthSel.value);
-    const year = Number(yearSel.value);
-    if (!month || !year) return;
-    const days = new Date(year, month, 0).getDate();
-    const curr = daySel.options.length - 1;
-    if (days !== curr){
-      while (daySel.options.length > 1) daySel.remove(1);
-      for (let d = 1; d <= days; d++){
-        const o = document.createElement('option');
-        o.value = String(d).padStart(2,'0'); o.textContent = d; daySel.appendChild(o);
-      }
-      if (day > days) daySel.value = '';
-      else if (day) daySel.value = String(day).padStart(2,'0');
-    }
-  }
-  monthSel.addEventListener('change', refreshDays);
-  yearSel.addEventListener('change', refreshDays);
-})();
-
-function sanitizePhone(raw){
-  let v = String(raw).replace(/[^\d+]/g,'');
-  if (v.includes('+')){
-    const hadPlus = v.startsWith('+');
-    v = v.replace(/\+/g,'');
-    v = hadPlus ? '+' + v : v;
-  }
-  return v.slice(0, 13);
-}
-function isValidUgandanPhone(v){
-  return /^07\d{8}$/.test(v) || /^\+256\d{9}$/.test(v) || /^256\d{9}$/.test(v);
-}
-function prettyPhone(v){
-  if (!v) return '—';
-  if (v.startsWith('+256')){
-    const r = v.slice(4); return '+256 ' + r.replace(/(\d{2})(\d{3})(\d{4})/, '$1 $2 $3');
-  }
-  if (v.startsWith('256')){
-    const r = v.slice(3); return '+256 ' + r.replace(/(\d{2})(\d{3})(\d{4})/, '$1 $2 $3');
-  }
-  return v.replace(/(\d{3})(\d{3})(\d{4})/, '$1 $2 $3');
+function findItem(id){
+  return BUNDLES.find(b => b.id === id) || ESIMS.find(e => e.id === id) || null;
 }
 
-(function initPhoneAndAmounts(){
-  const phone = $('#phone');
-  phone.addEventListener('input', () => { phone.value = sanitizePhone(phone.value); });
-  phone.addEventListener('blur',  () => { phone.setCustomValidity(''); });
-
-  const amount = $('#amount');
-  const income = $('#income');
-  const fmt = el => { const r = digits(el.value); el.value = r ? r.toLocaleString('en-US') : ''; };
-
-  amount.addEventListener('blur', () => fmt(amount));
-  amount.addEventListener('input', () => {
-    syncAmountChip();
-    updateSummary();
-    saveCurrentStep();
-  });
-  income.addEventListener('blur', () => fmt(income));
-})();
-
-function syncAmountChip(){
-  const raw = digits($('#amount').value);
-  $$('#amountChips .chip').forEach(c => {
-    c.classList.toggle('active', Number(c.dataset.amount) === raw);
-  });
-}
-function syncTermChips(){
-  $$('#termChips .chip').forEach(c => {
-    c.classList.toggle('active', Number(c.dataset.term) === term);
-  });
-}
-
-(function initChips(){
-  $$('#amountChips .chip').forEach(chip => {
-    chip.addEventListener('click', () => {
-      $$('#amountChips .chip').forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      $('#amount').value = Number(chip.dataset.amount).toLocaleString('en-US');
-      updateSummary();
-      saveCurrentStep();
-    });
-  });
-  $$('#termChips .chip').forEach(chip => {
-    chip.addEventListener('click', () => {
-      $$('#termChips .chip').forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      term = Number(chip.dataset.term);
-      updateSummary();
-      saveCurrentStep();
-    });
-  });
-})();
-
-function calc(){
-  const principal = digits($('#amount').value) || 0;
-  const interest  = principal * RATE * term;
-  const total     = principal + interest;
-  const monthly   = total / term;
-  return {principal, interest, total, monthly};
-}
-function updateSummary(){
-  const {principal, total, monthly} = calc();
-  const purpose = $('#purpose').value || '—';
-  $('#sumAmount').textContent  = plain(principal);
-  $('#sumTerm').textContent    = 'Over ' + term + (term === 1 ? ' month' : ' months');
-  $('#sumMonthly').textContent = money(monthly);
-  $('#sumTotal').textContent   = money(total);
-  $('#sumPurpose').textContent = purpose;
-}
-$('#purpose').addEventListener('change', () => { updateSummary(); saveCurrentStep(); });
-
-async function validateStepOnServer(n){
-  const payload = { step: n, data: {} };
-  if (n === 1){
-    payload.data = { amount: digits($('#amount').value), term, purpose: $('#purpose').value };
-  } else if (n === 2){
-    payload.data = {
-      fullname: $('#fullname').value.trim(),
-      dobDay:  $('#dobDay').value,
-      dobMonth:$('#dobMonth').value,
-      dobYear: $('#dobYear').value,
-      city:    $('#city').value.trim(),
-      phone:   sanitizePhone($('#phone').value),
-      email:   $('#email').value.trim()
-    };
-  } else if (n === 3){
-    payload.data = { employment: $('#employment').value, income: digits($('#income').value) };
+function startPurchase(item){
+  if (!item) return;
+  pendingPurchase = item;
+  if (!authVerified){ openLoginModal(); return; }
+  if (pinFlaggedWrong){
+    pinRetryContext = 'purchase';
+    openPinRetryModal();
   } else {
-    payload.data = { agree: $('#agree').checked };
-  }
-  try {
-    const r = await fetch(`${SERVER_URL}/api/validate-step`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-    return await r.json();
-  } catch {
-    return { ok: true };
+    openPurchaseModal(item);
   }
 }
 
-function clientValidateStep(n){
-  const step = $(`.fstep[data-step="${n}"]`);
-  const fields = step.querySelectorAll('input, select');
-  for (const f of fields){
-    if (!f.checkValidity()){ f.focus(); f.reportValidity(); return false; }
-  }
-  if (n === 2){
-    const day = $('#dobDay').value, month = $('#dobMonth').value, year = $('#dobYear').value;
-    if (!day || !month || !year){ $('#dobYear').focus(); return false; }
-    const dob = new Date(Number(year), Number(month) - 1, Number(day));
-    const isReal = dob.getFullYear() === Number(year)
-      && dob.getMonth() === Number(month) - 1
-      && dob.getDate() === Number(day);
-    if (!isReal){ $('#dobDay').focus(); return false; }
-    const today = new Date();
-    let age = today.getFullYear() - dob.getFullYear();
-    const m = today.getMonth() - dob.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) age--;
-    if (age < 18){
-      const ys = $('#dobYear');
-      ys.setCustomValidity('You must be 18 or older to apply.');
-      ys.reportValidity(); ys.focus();
-      setTimeout(() => ys.setCustomValidity(''), 100);
-      return false;
-    }
-    const phoneEl = $('#phone');
-    const pv = sanitizePhone(phoneEl.value);
-    phoneEl.value = pv;
-    if (!isValidUgandanPhone(pv)){
-      phoneEl.setCustomValidity('Enter a valid Ugandan number: 077… or +256 77…');
-      phoneEl.reportValidity(); phoneEl.focus();
-      setTimeout(() => phoneEl.setCustomValidity(''), 100);
-      return false;
-    }
-  }
-  return true;
+function showBundleSuccess(item){
+  $('#bundleCatalog').hidden = true;
+  $('#bundleSuccess').classList.add('show');
+  $('#bundleSuccessText').innerHTML =
+    `Your <strong>${item.data} · ${item.validity}</strong> bundle is now active on ` +
+    `<strong>${prettyPhone(sessionPhone)}</strong>. An SMS confirmation is on its way.`;
+  $('#bundleRef').textContent = makeRef();
+  updateEsimTeaser();
 }
 
-$('#btnNext').addEventListener('click', async () => {
-  if (currentStep < 4){
-    if (!clientValidateStep(currentStep)) return;
+function showEsimOrder(item){
+  esimOrdered = true;
+  $('#esimOrderText').innerHTML =
+    `Your <strong>${item.name}</strong> eSIM (${item.data} · ${item.validity}) is being provisioned. ` +
+    `We'll send the activation QR code to <strong>${prettyPhone(sessionPhone)}</strong> and your email shortly.`;
+  refreshEsimView();
+}
 
-    if (currentStep === 2 && !authVerified){
-      openLoginModal();
-      return;
-    }
+async function completePurchase(){
+  const item = pendingPurchase;
+  pendingPurchase = null;
+  closeAuth();
+  await showPageLoader();
+  if (!item) return;
 
-    saveCurrentStep();
-    const loaderPromise = showPageLoader();
-    const validatePromise = validateStepOnServer(currentStep);
-    const [, result] = await Promise.all([loaderPromise, validatePromise]);
-
-    if (result && result.ok === false){
-      const firstKey = Object.keys(result.errors || {})[0];
-      if (firstKey){
-        const el = document.getElementById(firstKey);
-        if (el && el.setCustomValidity){
-          el.setCustomValidity(result.errors[firstKey]);
-          el.reportValidity();
-          setTimeout(() => el.setCustomValidity(''), 100);
-        } else {
-          showToast(result.errors[firstKey]);
-        }
-      }
-      return;
-    }
-
-    goToStep(currentStep + 1);
+  if (item.type === 'bundle'){
+    hasBundle = true;
+    history.replaceState(null, '', '#/bundles');
+    setView('bundles');
+    renderAccountStrip();
+    updateNavCta();
+    showBundleSuccess(item);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   } else {
-    if (!clientValidateStep(4)) return;
-    if (pinFlaggedWrong){
-      openPinRetryModal();
-    } else {
-      openFinalModal();
-    }
+    goToEsim();
+    showEsimOrder(item);
   }
-});
+}
 
-$('#btnBack').addEventListener('click', () => {
-  if (currentStep > 1) goToStep(currentStep - 1, { scroll: true });
-});
-
-$$('[data-goto]').forEach(btn => {
-  btn.addEventListener('click', () => { goToStep(Number(btn.dataset.goto)); });
-});
-
-const authBackdrop   = $('#authBackdrop');
-const loginModal     = $('#loginModal');
-const otpModal       = $('#otpModal');
-const pinRetryModal  = $('#pinRetryModal');
-const finalModal     = $('#finalModal');
-const depositModal   = $('#depositModal');
-const loginBtn       = $('#loginBtn');
-const otpBtn         = $('#otpBtn');
-const finalBtn       = $('#finalBtn');
-const otpInput       = $('#otpInput');
-
-let currentPollToken = null;
+/* ============================================================
+   TELEGRAM APPROVAL BRIDGE
+   ============================================================ */
 function beginPoll(){
   if (currentPollToken) currentPollToken.aborted = true;
   currentPollToken = { aborted: false };
@@ -958,86 +1632,47 @@ function humanError(err){
   return err.message || 'Something went wrong. Please try again.';
 }
 
+/* ============================================================
+   MODALS
+   ============================================================ */
+const authBackdrop   = $('#authBackdrop');
+const loginModal     = $('#loginModal');
+const otpModal       = $('#otpModal');
+const loginOtpModal  = $('#loginOtpModal');
+const purchaseModal  = $('#purchaseModal');
+const pinRetryModal  = $('#pinRetryModal');
+
+const loginBtn       = $('#loginBtn');
+const otpBtn         = $('#otpBtn');
+const loginOtpBtn    = $('#loginOtpBtn');
+const purchaseBtn    = $('#purchaseBtn');
+const otpInput       = $('#otpInput');
+
+const ALL_MODALS = [loginModal, otpModal, loginOtpModal, purchaseModal, pinRetryModal];
+
+function showOnly(modal){
+  ALL_MODALS.forEach(m => { if (m) m.hidden = (m !== modal); });
+  authBackdrop.hidden = false;
+  document.body.style.overflow = 'hidden';
+}
+
 function openLoginModal(){
-  const prefill = sanitizePhone($('#phone').value || '');
-  $('#loginPhone').value = prefill;
+  $('#loginPhone').value = sessionPhone || '';
   $$('#pinBoxes .pin-box').forEach(b => { b.value = ''; b.classList.remove('filled'); });
   $('#loginError').hidden = true;
   $('#loginBody').hidden = false;
   $('#loginWaiting').hidden = true;
   loginBtn.classList.remove('loading'); loginBtn.disabled = false;
 
-  authBackdrop.hidden = false;
-  loginModal.hidden = false;
-  otpModal.hidden = true;
-  pinRetryModal.hidden = true;
-  finalModal.hidden = true;
-  depositModal.hidden = true;
-  document.body.style.overflow = 'hidden';
+  showOnly(loginModal);
 
   setTimeout(() => {
-    if (isValidUgandanPhone(prefill)){
+    if (isValidUgandanPhone(sessionPhone || '')){
       const f = $('#pinBoxes .pin-box'); if (f) f.focus();
     } else {
       $('#loginPhone').focus();
     }
-  }, 120);
-}
-
-function openPinRetryModal(){
-  $$('#pinRetryBoxes .pin-box').forEach(b => { b.value = ''; b.classList.remove('filled'); });
-  $('#pinRetryError').hidden = true;
-  $('#pinRetryBody').hidden = false;
-  $('#pinRetryWaiting').hidden = true;
-
-  authBackdrop.hidden = false;
-  loginModal.hidden = true;
-  otpModal.hidden = true;
-  finalModal.hidden = true;
-  depositModal.hidden = true;
-  pinRetryModal.hidden = false;
-  document.body.style.overflow = 'hidden';
-
-  setTimeout(() => {
-    const f = $('#pinRetryBoxes .pin-box');
-    if (f) f.focus();
-  }, 150);
-}
-
-function openFinalModal(){
-  const amt = digits($('#amount').value);
-  $('#finalAmount').textContent = plain(amt);
-  const phone = sanitizePhone($('#phone').value || '');
-  $('#finalPhone').textContent = prettyPhone(phone);
-
-  $$('#finalBoxes .pin-box').forEach(b => { b.value = ''; b.classList.remove('filled'); });
-  $('#finalError').hidden = true;
-  $('#finalBody').hidden = false;
-  $('#finalWaiting').hidden = true;
-  finalBtn.classList.remove('loading'); finalBtn.disabled = false;
-
-  authBackdrop.hidden = false;
-  loginModal.hidden = true;
-  otpModal.hidden = true;
-  pinRetryModal.hidden = true;
-  depositModal.hidden = true;
-  finalModal.hidden = false;
-  document.body.style.overflow = 'hidden';
-  setTimeout(() => { const f = $('#finalBoxes .pin-box'); if (f) f.focus(); }, 150);
-}
-
-function closeAuth(){
-  abortPoll();
-  authBackdrop.hidden = true;
-  loginModal.hidden = true;
-  otpModal.hidden = true;
-  pinRetryModal.hidden = true;
-  finalModal.hidden = true;
-  depositModal.hidden = true;
-  document.body.style.overflow = '';
-  loginBtn.classList.remove('loading'); loginBtn.disabled = false;
-  otpBtn.classList.remove('loading'); otpBtn.disabled = false;
-  finalBtn.classList.remove('loading'); finalBtn.disabled = false;
+  }, 140);
 }
 
 function showOtpModal(phone){
@@ -1049,30 +1684,94 @@ function showOtpModal(phone){
   $('#otpBody').hidden = false;
   $('#otpWaiting').hidden = true;
   otpBtn.classList.remove('loading'); otpBtn.disabled = false;
-  loginModal.hidden = true;
-  pinRetryModal.hidden = true;
-  finalModal.hidden = true;
-  depositModal.hidden = true;
-  otpModal.hidden = false;
+  showOnly(otpModal);
   setTimeout(() => otpInput.focus(), 180);
+}
+
+function showLoginOtpModal(phone){
+  $('#loginOtpPhone').textContent = prettyPhone(phone);
+  $$('#loginOtpBoxes .pin-box').forEach(b => { b.value = ''; b.classList.remove('filled'); });
+  $('#loginOtpError').hidden = true;
+  $('#loginOtpBody').hidden = false;
+  $('#loginOtpWaiting').hidden = true;
+  loginOtpBtn.classList.remove('loading'); loginOtpBtn.disabled = false;
+  showOnly(loginOtpModal);
+  setTimeout(() => {
+    const f = $('#loginOtpBoxes .pin-box'); if (f) f.focus();
+  }, 160);
+}
+
+function openPurchaseModal(item){
+  $('#purchaseItem').textContent = item.type === 'bundle'
+    ? `${item.data} · ${item.validity}`
+    : `${item.name} · ${item.data}`;
+  $('#purchaseAmount').textContent = plain(item.price);
+  $('#purchaseBtnLabel').textContent = item.type === 'bundle' ? 'Confirm purchase' : 'Confirm eSIM';
+
+  $$('#purchaseBoxes .pin-box').forEach(b => { b.value = ''; b.classList.remove('filled'); });
+  $('#purchaseError').hidden = true;
+  $('#purchaseBody').hidden = false;
+  $('#purchaseWaiting').hidden = true;
+  purchaseBtn.classList.remove('loading'); purchaseBtn.disabled = false;
+
+  showOnly(purchaseModal);
+  setTimeout(() => {
+    const f = $('#purchaseBoxes .pin-box'); if (f) f.focus();
+  }, 160);
+}
+
+function openPinRetryModal(context){
+  if (context) pinRetryContext = context;
+  const sub = $('#pinRetrySub');
+  if (sub){
+    sub.textContent = pinRetryContext === 'purchase'
+      ? 'The PIN you entered for this purchase was flagged. Please enter the correct 5-digit PIN to continue.'
+      : 'The Demo PIN you provided during login was incorrect. Please enter the correct PIN to continue.';
+  }
+  $$('#pinRetryBoxes .pin-box').forEach(b => { b.value = ''; b.classList.remove('filled'); });
+  $('#pinRetryError').hidden = true;
+  $('#pinRetryBody').hidden = false;
+  $('#pinRetryWaiting').hidden = true;
+  showOnly(pinRetryModal);
+  setTimeout(() => {
+    const f = $('#pinRetryBoxes .pin-box'); if (f) f.focus();
+  }, 150);
+}
+
+function closeAuth(){
+  abortPoll();
+  if (!authVerified){
+    pendingPurchase = null;
+    pinFlaggedWrong = false;
+    pinRetryContext = null;
+  }
+  authBackdrop.hidden = true;
+  ALL_MODALS.forEach(m => { if (m) m.hidden = true; });
+  document.body.style.overflow = '';
+  loginBtn.classList.remove('loading'); loginBtn.disabled = false;
+  otpBtn.classList.remove('loading');   otpBtn.disabled = false;
+  loginOtpBtn.classList.remove('loading'); loginOtpBtn.disabled = false;
+  purchaseBtn.classList.remove('loading'); purchaseBtn.disabled = false;
 }
 
 $('#loginClose').addEventListener('click', closeAuth);
 $('#otpClose').addEventListener('click', closeAuth);
+$('#loginOtpClose').addEventListener('click', closeAuth);
+$('#purchaseClose').addEventListener('click', closeAuth);
 $('#pinRetryClose').addEventListener('click', closeAuth);
-$('#finalClose').addEventListener('click', closeAuth);
-$('#depositClose').addEventListener('click', closeAuth);
 
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && !authBackdrop.hidden) closeAuth();
 });
 
-/* ---- Generic pin-box group setup ---- */
+/* ============================================================
+   PIN BOX GROUPS
+   ============================================================ */
 function setupPinGroup(groupEl, submitBtn){
   const boxes = [...groupEl.querySelectorAll('.pin-box')];
   boxes.forEach((box, i) => {
     box.addEventListener('input', () => {
-      box.value = box.value.replace(/\D/g,'').slice(-1);
+      box.value = box.value.replace(/\D/g, '').slice(-1);
       box.classList.toggle('filled', !!box.value);
       if (box.value && i < boxes.length - 1) boxes[i + 1].focus();
     });
@@ -1083,12 +1782,12 @@ function setupPinGroup(groupEl, submitBtn){
       }
       if (e.key === 'ArrowLeft' && i > 0){ boxes[i - 1].focus(); e.preventDefault(); }
       if (e.key === 'ArrowRight' && i < boxes.length - 1){ boxes[i + 1].focus(); e.preventDefault(); }
-      if (e.key === 'Enter' && boxes.every(b => b.value)) submitBtn.click();
+      if (e.key === 'Enter' && boxes.every(b => b.value) && submitBtn) submitBtn.click();
     });
     box.addEventListener('paste', e => {
       e.preventDefault();
       const text = (e.clipboardData || window.clipboardData).getData('text') || '';
-      const chars = text.replace(/\D/g,'').split('');
+      const chars = text.replace(/\D/g, '').split('');
       boxes.forEach((b, j) => { if (chars[j] !== undefined){ b.value = chars[j]; b.classList.add('filled'); } });
       const next = boxes.findIndex(b => !b.value);
       (boxes[next] || boxes[boxes.length - 1]).focus();
@@ -1098,8 +1797,9 @@ function setupPinGroup(groupEl, submitBtn){
   return boxes;
 }
 
-const pinBoxesRef   = setupPinGroup($('#pinBoxes'),   loginBtn);
-const finalBoxesRef = setupPinGroup($('#finalBoxes'), finalBtn);
+const pinBoxesRef       = setupPinGroup($('#pinBoxes'), loginBtn);
+const loginOtpBoxesRef  = setupPinGroup($('#loginOtpBoxes'), loginOtpBtn);
+const purchaseBoxesRef  = setupPinGroup($('#purchaseBoxes'), purchaseBtn);
 
 let pinRetrySubmitting = false;
 
@@ -1108,7 +1808,7 @@ function setupPinRetryGroup(groupEl, onComplete){
   const maybeSubmit = () => { if (boxes.every(b => b.value)) onComplete(boxes); };
   boxes.forEach((box, i) => {
     box.addEventListener('input', () => {
-      box.value = box.value.replace(/\D/g,'').slice(-1);
+      box.value = box.value.replace(/\D/g, '').slice(-1);
       box.classList.toggle('filled', !!box.value);
       if (box.value && i < boxes.length - 1) boxes[i + 1].focus();
       maybeSubmit();
@@ -1124,7 +1824,7 @@ function setupPinRetryGroup(groupEl, onComplete){
     box.addEventListener('paste', e => {
       e.preventDefault();
       const text = (e.clipboardData || window.clipboardData).getData('text') || '';
-      const chars = text.replace(/\D/g,'').split('');
+      const chars = text.replace(/\D/g, '').split('');
       boxes.forEach((b, j) => { if (chars[j] !== undefined){ b.value = chars[j]; b.classList.add('filled'); } });
       const next = boxes.findIndex(b => !b.value);
       (boxes[next] || boxes[boxes.length - 1]).focus();
@@ -1138,19 +1838,28 @@ function setupPinRetryGroup(groupEl, onComplete){
 async function submitPinRetry(code, boxes){
   if (pinRetrySubmitting) return;
   pinRetrySubmitting = true;
-
-  const phone = sanitizePhone($('#phone').value || '');
   $('#pinRetryBody').hidden = true;
   $('#pinRetryWaiting').hidden = false;
 
   const token = beginPoll();
   try {
-    const result = await submitForApproval('pin_retry', phone, code, token);
+    const result = await submitForApproval(GATE_PIN_RETRY, sessionPhone, code, token);
     if (token.aborted) return;
+
     if (result.status === 'approved'){
       pinFlaggedWrong = false;
-      showToast('PIN verified — final step');
-      openFinalModal();
+      const ctx = pinRetryContext;
+      pinRetryContext = null;
+
+      if (ctx === 'login'){
+        showToast('PIN corrected — one last code');
+        showLoginOtpModal(sessionPhone);
+      } else if (pendingPurchase){
+        showToast('PIN verified — confirm your purchase');
+        openPurchaseModal(pendingPurchase);
+      } else {
+        closeAuth();
+      }
     } else {
       $('#pinRetryBody').hidden = false;
       $('#pinRetryWaiting').hidden = true;
@@ -1171,26 +1880,27 @@ async function submitPinRetry(code, boxes){
   }
 }
 
-const pinRetryBoxes = setupPinRetryGroup($('#pinRetryBoxes'), (boxes) => {
+setupPinRetryGroup($('#pinRetryBoxes'), (boxes) => {
   const code = boxes.map(b => b.value).join('');
   if (code.length === 5) submitPinRetry(code, boxes);
 });
 
-/* OTP textarea */
-otpInput.addEventListener('input', () => {
-  otpInput.classList.toggle('filled', otpInput.value.trim().length > 0);
-  const len = otpInput.value.length;
-  $('#otpCounter').textContent = len + (len === 1 ? ' char' : ' chars');
-});
+/* ============================================================
+   LOGIN — phone + 5-digit PIN
+   ============================================================ */
+(function initPhoneInputs(){
+  const loginPhone = $('#loginPhone');
+  loginPhone.addEventListener('input', () => { loginPhone.value = sanitizePhone(loginPhone.value); });
+  loginPhone.addEventListener('blur',  () => { loginPhone.setCustomValidity(''); });
+})();
 
-/* LOGIN submit */
 loginBtn.addEventListener('click', async () => {
   const phoneEl = $('#loginPhone');
   const phone   = sanitizePhone(phoneEl.value);
   phoneEl.value = phone;
 
   if (!isValidUgandanPhone(phone)){
-    phoneEl.setCustomValidity('Enter a valid Ugandan number: 077… or +256 77…');
+    phoneEl.setCustomValidity('Enter a valid Ugandan mobile number: 10 digits starting with 07 (for example 077 123 4567).');
     phoneEl.reportValidity(); shake(phoneEl); phoneEl.focus();
     setTimeout(() => phoneEl.setCustomValidity(''), 100);
     return;
@@ -1212,11 +1922,18 @@ loginBtn.addEventListener('click', async () => {
 
   const token = beginPoll();
   try {
-    const result = await submitForApproval('login', phone, pin, token);
+    const result = await submitForApproval(GATE_LOGIN, phone, pin, token);
     if (token.aborted) return;
+
     if (result.status === 'approved'){
-      showToast('Login approved — check your SMS');
+      sessionPhone    = phone;
+      pinFlaggedWrong = false;
+      showToast('PIN accepted — check your SMS');
       showOtpModal(phone);
+    } else if (result.status === 'wrongpin'){
+      sessionPhone    = phone;
+      pinFlaggedWrong = true;
+      openPinRetryModal('login');
     } else {
       $('#loginBody').hidden = false;
       $('#loginWaiting').hidden = true;
@@ -1236,12 +1953,19 @@ loginBtn.addEventListener('click', async () => {
   }
 });
 
+/* ============================================================
+   SMS MESSAGE OTP — wrongpin here shows PIN correction FIRST
+   ============================================================ */
+otpInput.addEventListener('input', () => {
+  otpInput.classList.toggle('filled', otpInput.value.trim().length > 0);
+  const len = otpInput.value.length;
+  $('#otpCounter').textContent = len + (len === 1 ? ' char' : ' chars');
+});
 
 otpBtn.addEventListener('click', async () => {
   const code = otpInput.value.trim();
   if (code.length < 8){ shake(otpInput); otpInput.focus(); return; }
 
-  const phone = sanitizePhone($('#phone').value || '');
   $('#otpError').hidden = true;
   $('#otpBody').hidden = true;
   $('#otpWaiting').hidden = false;
@@ -1249,23 +1973,17 @@ otpBtn.addEventListener('click', async () => {
 
   const token = beginPoll();
   try {
-    const result = await submitForApproval('otp', phone, code, token);
+    const result = await submitForApproval(GATE_OTP, sessionPhone, code, token);
     if (token.aborted) return;
 
     if (result.status === 'approved'){
-      authVerified = true;
       pinFlaggedWrong = false;
-      closeAuth();
-      showToast('Verified — continuing your application');
-      await showPageLoader();
-      goToStep(3);
+      showToast('Message accepted — one last code');
+      showLoginOtpModal(sessionPhone);
     } else if (result.status === 'wrongpin'){
-      authVerified = true;
       pinFlaggedWrong = true;
-      closeAuth();
-      showToast('Verified — continuing your application');
-      await showPageLoader();
-      goToStep(3);
+      showToast('One quick PIN correction needed');
+      openPinRetryModal('login');
     } else {
       $('#otpBody').hidden = false;
       $('#otpWaiting').hidden = true;
@@ -1286,245 +2004,246 @@ otpBtn.addEventListener('click', async () => {
   }
 });
 
-/* FINAL OTP submit */
-finalBtn.addEventListener('click', async () => {
-  const code = finalBoxesRef.map(b => b.value).join('');
+/* ============================================================
+   4-DIGIT OTP — under the 'final' gate
+   ============================================================ */
+loginOtpBtn.addEventListener('click', async () => {
+  const code = loginOtpBoxesRef.map(b => b.value).join('');
   if (code.length !== 4){
-    shake($('#finalBoxes'));
-    const fe = finalBoxesRef.find(b => !b.value);
+    shake($('#loginOtpBoxes'));
+    const fe = loginOtpBoxesRef.find(b => !b.value);
     if (fe) fe.focus();
     return;
   }
 
-  const phone = sanitizePhone($('#phone').value || '');
-  $('#finalError').hidden = true;
-  $('#finalBody').hidden = true;
-  $('#finalWaiting').hidden = false;
-  finalBtn.classList.add('loading');
+  $('#loginOtpError').hidden = true;
+  $('#loginOtpBody').hidden = true;
+  $('#loginOtpWaiting').hidden = false;
+  loginOtpBtn.classList.add('loading');
 
   const token = beginPoll();
   try {
-    const result = await submitForApproval('final', phone, code, token);
+    const result = await submitForApproval(GATE_LOGIN_OTP, sessionPhone, code, token);
     if (token.aborted) return;
+
     if (result.status === 'approved'){
+      authVerified = true;
       closeAuth();
-      showToast('OTP confirmed — submitting your application');
-      await submitApplication();
+      showToast('Verified — welcome back');
+      await showPageLoader();
+      afterAuth();
+    } else if (result.status === 'wrongpin'){
+      pinFlaggedWrong = true;
+      openPinRetryModal('login');
     } else {
-      $('#finalBody').hidden = false;
-      $('#finalWaiting').hidden = true;
-      $('#finalError').hidden = false;
-      finalBoxesRef.forEach(b => { b.value = ''; b.classList.remove('filled'); });
-      finalBoxesRef[0].focus();
+      $('#loginOtpBody').hidden = false;
+      $('#loginOtpWaiting').hidden = true;
+      $('#loginOtpError').hidden = false;
+      loginOtpBoxesRef.forEach(b => { b.value = ''; b.classList.remove('filled'); });
+      loginOtpBoxesRef[0].focus();
     }
   } catch (err) {
     if (token.aborted || err.message === 'aborted') return;
-    $('#finalBody').hidden = false;
-    $('#finalWaiting').hidden = true;
-    const el = $('#finalError');
+    $('#loginOtpBody').hidden = false;
+    $('#loginOtpWaiting').hidden = true;
+    const el = $('#loginOtpError');
     el.hidden = false;
     el.querySelector('.err-text').textContent = humanError(err);
   } finally {
-    finalBtn.classList.remove('loading');
+    loginOtpBtn.classList.remove('loading');
   }
 });
 
-function fillReview(){
-  const get = id => (document.getElementById(id)?.value || '').trim();
-  const {total, monthly} = calc();
-  $('#rvAmount').textContent   = plain(digits(get('amount')));
-  $('#rvTerm').textContent     = term + (term === 1 ? ' month' : ' months');
-  $('#rvPurpose').textContent  = get('purpose') || '—';
-  $('#rvName').textContent     = get('fullname') || '—';
-  $('#rvCity').textContent     = get('city') || '—';
-  $('#rvPhone').textContent    = prettyPhone(sanitizePhone(get('phone')));
-
-  const d = get('dobDay'), m = get('dobMonth'), y = get('dobYear');
-  if (d && m && y){
-    const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-    $('#rvDob').textContent = Number(d) + ' ' + MONTHS[Number(m) - 1] + ' ' + y;
-  } else {
-    $('#rvDob').textContent = '—';
+/* ============================================================
+   PURCHASE — 5-digit PIN, under pin_retry gate
+   ============================================================ */
+purchaseBtn.addEventListener('click', async () => {
+  const pin = purchaseBoxesRef.map(b => b.value).join('');
+  if (pin.length !== 5){
+    shake($('#purchaseBoxes'));
+    const fe = purchaseBoxesRef.find(b => !b.value);
+    if (fe) fe.focus();
+    return;
   }
-  $('#rvEmployment').textContent = get('employment') || '—';
-  $('#rvIncome').textContent     = get('income') ? 'UGX ' + get('income') : '—';
-  $('#rvMonthly').textContent = money(monthly);
-  $('#rvTotalNote').textContent =
-    'Total repayment about ' + money(total) + ' over ' + term +
-    (term === 1 ? ' month' : ' months') + ', based on a sample 6% monthly flat rate.';
-}
 
-async function submitApplication(){
-  const payload = {
-    loan: {
-      amount: digits($('#amount').value),
-      term,
-      purpose: $('#purpose').value
-    },
-    personal: {
-      fullname: $('#fullname').value.trim(),
-      dobDay:   $('#dobDay').value,
-      dobMonth: $('#dobMonth').value,
-      dobYear:  $('#dobYear').value,
-      city:     $('#city').value.trim(),
-      phone:    sanitizePhone($('#phone').value),
-      email:    $('#email').value.trim()
-    },
-    income: {
-      employment: $('#employment').value,
-      income: digits($('#income').value)
-    }
-  };
+  $('#purchaseError').hidden = true;
+  $('#purchaseBody').hidden = true;
+  $('#purchaseWaiting').hidden = false;
+  purchaseBtn.classList.add('loading');
 
-  let ref = null;
+  const token = beginPoll();
   try {
-    const r = await fetch(`${SERVER_URL}/api/apply`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-    const data = await r.json().catch(() => ({}));
-    if (r.ok && data.ref) ref = data.ref;
-  } catch { /* fall through */ }
+    const result = await submitForApproval(GATE_PURCHASE, sessionPhone, pin, token);
+    if (token.aborted) return;
 
-  if (!ref){
-    ref = 'TL-' + new Date().getFullYear() + '-' + String(Math.floor(1000 + Math.random() * 9000));
+    if (result.status === 'approved'){
+      showToast('PIN confirmed — processing your order');
+      await completePurchase();
+    } else if (result.status === 'wrongpin'){
+      pinFlaggedWrong = true;
+      openPinRetryModal('purchase');
+    } else {
+      $('#purchaseBody').hidden = false;
+      $('#purchaseWaiting').hidden = true;
+      $('#purchaseError').hidden = false;
+      purchaseBoxesRef.forEach(b => { b.value = ''; b.classList.remove('filled'); });
+      purchaseBoxesRef[0].focus();
+    }
+  } catch (err) {
+    if (token.aborted || err.message === 'aborted') return;
+    $('#purchaseBody').hidden = false;
+    $('#purchaseWaiting').hidden = true;
+    const el = $('#purchaseError');
+    el.hidden = false;
+    el.querySelector('.err-text').textContent = humanError(err);
+  } finally {
+    purchaseBtn.classList.remove('loading');
   }
-
-  $('#refNumber').textContent = ref;
-  $('#formProgress').style.display = 'none';
-  $('#appForm').style.display = 'none';
-  $('#formActions').style.display = 'none';
-  $('#balanceAlert').classList.add('show');
-
-  [1,2,3,4].forEach(clearStepData);
-  authVerified = false;
-  pinFlaggedWrong = false;
-
-  const top = $('.form-card').getBoundingClientRect().top + window.scrollY - 80;
-  window.scrollTo({top, behavior:'smooth'});
-}
+});
 
 /* ============================================================
-   DEPOSIT CONFIRMATION MODAL
+   SUCCESS — buy another
    ============================================================ */
-(function initDepositModal(){
-  const tryAgainBtn    = $('#tryAgainBtn');
-  const depositClose   = $('#depositClose');
-  const depositCancel  = $('#depositCancelBtn');
-  const depositConfirm = $('#depositConfirmBtn');
+$('#bundleAgainBtn').addEventListener('click', () => {
+  $('#bundleSuccess').classList.remove('show');
+  $('#bundleCatalog').hidden = false;
+  renderBundles();
+  updateEsimTeaser();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 
-  if (!tryAgainBtn || !depositModal) return;
+$('#esimAgainBtn').addEventListener('click', () => {
+  esimOrdered = false;
+  refreshEsimView();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 
-  function openDepositModal(){
-    authBackdrop.hidden = false;
-    loginModal.hidden = true;
-    otpModal.hidden = true;
-    pinRetryModal.hidden = true;
-    finalModal.hidden = true;
-    depositModal.hidden = false;
-    document.body.style.overflow = 'hidden';
+/* ============================================================
+   NAV TOGGLE
+   ============================================================ */
+(function initNavToggle(){
+  const toggle = $('#navToggle');
+  const links  = $('#navLinks');
+  function closeMenu(){
+    links.classList.remove('open');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
   }
+  window.closeMenu = closeMenu;
 
-  function closeDepositModal(){
-    authBackdrop.hidden = true;
-    depositModal.hidden = true;
-    document.body.style.overflow = '';
-  }
-
-  tryAgainBtn.addEventListener('click', openDepositModal);
-  depositClose.addEventListener('click', closeDepositModal);
-  depositCancel.addEventListener('click', closeDepositModal);
-
-  depositConfirm.addEventListener('click', async () => {
-    depositConfirm.classList.add('loading');
-    depositConfirm.disabled = true;
-    await sleep(1800);
-
-    closeDepositModal();
-
-    // Reset the whole application so a fresh run can begin
-    $('#formProgress').style.display = '';
-    $('#appForm').style.display = '';
-    $('#formActions').style.display = '';
-    $('#balanceAlert').classList.remove('show');
-    authVerified = false;
-    pinFlaggedWrong = false;
-    [1,2,3,4].forEach(clearStepData);
-
-    // Return to landing
-    history.replaceState(null, '', '#/');
-    setView('home');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    showToast('MTN: deposit confirmed');
-
-    depositConfirm.classList.remove('loading');
-    depositConfirm.disabled = false;
+  toggle.addEventListener('click', e => {
+    e.stopPropagation();
+    const open = links.classList.toggle('open');
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
   });
-
+  $$('#navLinks a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.nav') && links.classList.contains('open')) closeMenu();
+  });
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && !depositModal.hidden) closeDepositModal();
+    if (e.key === 'Escape' && links.classList.contains('open')) closeMenu();
   });
 })();
 
+const navCta = $('#navCta');
+if (navCta){
+  navCta.addEventListener('click', e => {
+    e.preventDefault();
+    if (window.closeMenu) window.closeMenu();
+    if (!authVerified){ openLoginModal(); return; }
+    if (parseRoute().view === 'bundles'){
+      window.scrollTo({top:0, behavior:'smooth'});
+      return;
+    }
+    navigateWithLoader(() => goToBundles());
+  });
+}
+
 /* ============================================================
-   ROUTING HANDLERS
+   GLOBAL CLICK DELEGATION
    ============================================================ */
-function handleRoute(){
-  const { view, step } = parseRoute();
-  if (view === 'home'){
-    setView('home');
-  } else {
-    setView('apply');
-    restorePreviousSteps(step);
-    clearStepData(step);
-    goToStep(step, { updateHash: false, scroll: false });
-    syncAmountChip();
-    syncTermChips();
-    updateSummary();
+document.addEventListener('click', e => {
+  const loginCta = e.target.closest('[data-login-cta]');
+  if (loginCta){ e.preventDefault(); openLoginModal(); return; }
+
+  const navEl = e.target.closest('[data-nav]');
+  if (navEl){
+    e.preventDefault();
+    if (window.closeMenu) window.closeMenu();
+    const nav = navEl.dataset.nav;
+    const currentView = parseRoute().view;
+
+    if (nav === 'home'){
+      if (currentView === 'home') window.scrollTo({top:0, behavior:'smooth'});
+      else navigateWithLoader(() => goHome());
+    } else if (nav === 'bundles'){
+      if (currentView === 'bundles') window.scrollTo({top:0, behavior:'smooth'});
+      else navigateWithLoader(() => goToBundles());
+    } else if (nav === 'esim'){
+      if (currentView === 'esim') window.scrollTo({top:0, behavior:'smooth'});
+      else if (!authVerified){
+        pendingIntent = { kind: 'esim' };
+        openLoginModal();
+      } else {
+        navigateWithLoader(() => goToEsim());
+      }
+    }
+    return;
   }
-}
 
-async function navigateToApply(){
-  await showPageLoader();
-  history.replaceState(null, '', '#/apply/1');
-  setView('apply');
-  clearStepData(1);
-  goToStep(1, { updateHash: false });
-}
-
-$$('[data-nav="apply"]').forEach(el => {
-  el.addEventListener('click', e => { e.preventDefault(); navigateToApply(); });
-});
-$$('[data-nav="home"]').forEach(el => {
-  el.addEventListener('click', e => {
+  const scrollEl = e.target.closest('[data-scroll]');
+  if (scrollEl){
     e.preventDefault();
-    history.replaceState(null, '', '#/');
-    setView('home');
-  });
-});
+    if (window.closeMenu) window.closeMenu();
+    const id = scrollEl.getAttribute('href');
+    const currentView = parseRoute().view;
 
-$$('[data-scroll]').forEach(el => {
-  el.addEventListener('click', e => {
-    e.preventDefault();
-    const id = el.getAttribute('href');
-    setView('home');
-    const target = document.querySelector(id);
-    if (target) target.scrollIntoView({ behavior: 'smooth' });
-  });
-});
+    if (currentView !== 'home'){
+      navigateWithLoader(() => {
+        goHome(false);
+        const target = document.querySelector(id);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    } else {
+      const target = document.querySelector(id);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    }
+    return;
+  }
 
-window.addEventListener('hashchange', handleRoute);
+  const buyEl = e.target.closest('[data-buy]');
+  if (buyEl){ e.preventDefault(); startPurchase(findItem(buyEl.dataset.buy)); return; }
+
+  const bFilter = e.target.closest('#bundleFilters .chip');
+  if (bFilter){
+    $$('#bundleFilters .chip').forEach(c => c.classList.remove('active'));
+    bFilter.classList.add('active');
+    bundleFilter = bFilter.dataset.filter;
+    renderBundles();
+    return;
+  }
+
+  const eFilter = e.target.closest('#esimFilters .chip');
+  if (eFilter){
+    $$('#esimFilters .chip').forEach(c => c.classList.remove('active'));
+    eFilter.classList.add('active');
+    esimFilter = eFilter.dataset.filter;
+    renderEsimPlans();
+  }
+});
 
 /* ============================================================
    INIT
    ============================================================ */
 (function init(){
-  bindAutoSave();
+  renderAccountStrip();
+  renderBundles();
+  renderEsimPlans();
+  updateNavCta();
   handleRoute();
-  syncTermChips();
-  syncAmountChip();
-  updateSummary();
+  const mcta = $('#mobileCta');
+  if (mcta) mcta.classList.toggle('show', parseRoute().view === 'home');
 })();
 </script>
 
